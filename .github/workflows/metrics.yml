@@ -1,18 +1,17 @@
 name: Generate GitHub Metrics
 
 on:
-  # Schedule updates every 6 hours
   schedule:
     - cron: "0 */6 * * *"
-  # Allow manual workflow trigger
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   generate-metrics:
-    runs-on: ubuntu-latest
     if: github.repository == 'c4m1r/c4m1r'
-    permissions:
-      contents: write
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -24,116 +23,109 @@ jobs:
         uses: ./
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ github.token }}
           user: c4m1r
           template: classic
-          filename: isocalendar.svg
           base: ""
+          filename: isocalendar.svg
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
-          output_action: commit
 
       - name: Generate languages.svg
         uses: ./
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ github.token }}
           user: c4m1r
           template: classic
-          filename: languages.svg
           base: ""
+          filename: languages.svg
           plugin_languages: yes
           plugin_languages_limit: 8
-          output_action: commit
 
       - name: Generate licenses.svg
         uses: ./
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ github.token }}
           user: c4m1r
           template: classic
-          filename: licenses.svg
           base: ""
+          filename: licenses.svg
           plugin_licenses: yes
           plugin_licenses_legal: yes
           plugin_licenses_ratio: yes
-          output_action: commit
 
       - name: Generate followup.svg
         uses: ./
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ github.token }}
           user: c4m1r
           template: classic
-          filename: followup.svg
           base: ""
+          filename: followup.svg
           plugin_followup: yes
           plugin_followup_sections: repositories
-          output_action: commit
 
       - name: Generate calendar.svg
         uses: ./
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ github.token }}
           user: c4m1r
           template: classic
-          filename: calendar.svg
           base: ""
+          filename: calendar.svg
           plugin_calendar: yes
           plugin_calendar_limit: 0
-          output_action: commit
 
       - name: Generate notable.svg
         uses: ./
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ github.token }}
           user: c4m1r
           template: classic
-          filename: notable.svg
           base: ""
+          filename: notable.svg
           plugin_notable: yes
           plugin_notable_from: all
-          output_action: commit
 
       - name: Generate traffic.svg
         uses: ./
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ github.token }}
           user: c4m1r
           template: classic
-          filename: traffic.svg
           base: ""
+          filename: traffic.svg
           plugin_traffic: yes
-          output_action: commit
 
       - name: Generate pagespeed.svg
         uses: ./
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ github.token }}
           user: c4m1r
           template: classic
-          filename: pagespeed.svg
           base: ""
+          filename: pagespeed.svg
           plugin_pagespeed: yes
           plugin_pagespeed_url: https://c4m1r.github.io
-          output_action: commit
 
       - name: Generate anilist.svg
         uses: ./
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ github.token }}
           user: c4m1r
           template: classic
-          filename: anilist.svg
           base: ""
+          filename: anilist.svg
           plugin_anilist: yes
           plugin_anilist_user: an0n72
-          plugin_anilist_sections: favorites
-          output_action: commit
+
+      - name: Commit and push generated SVGs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add isocalendar.svg languages.svg licenses.svg followup.svg calendar.svg notable.svg traffic.svg pagespeed.svg anilist.svg
+          if git diff --cached --quiet; then
+            echo "No SVG changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: update metrics"
+          git push
