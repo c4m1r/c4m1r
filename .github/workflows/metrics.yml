@@ -1,105 +1,128 @@
 name: Generate GitHub Metrics
 
 on:
-  # Schedule daily updates at midnight UTC
+  # Schedule updates every 6 hours
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 */6 * * *"
   # Allow manual workflow trigger
   workflow_dispatch:
 
 jobs:
-  build:
+  generate-metrics:
     runs-on: ubuntu-latest
+    if: github.repository == 'c4m1r/c4m1r'
     permissions:
       contents: write
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Generate general metrics
-        uses: c4m1r/c4m1r@main
+      - name: Generate isocalendar.svg
+        uses: ./
         with:
-          # GitHub token with 'repo' scope for private repositories access
-          token: ${{ secrets.repo_c4m1r_metrics }}
+          token: ${{ secrets.METRICS_TOKEN }}
           user: c4m1r
           template: classic
-          filename: general.svg
-          # Automatically commit generated files to repository (default behavior)
-          output_action: commit
-          base: header, activity, community, repositories, metadata
-          plugin_languages: yes
-          plugin_languages_limit: 8
-          plugin_languages_ignored: html, css, tex, less, dockerfile, makefile, qmake, lex, cmake, shell, gnuplot
-          plugin_isocalendar: yes
-          plugin_isocalendar_duration: half-year
-          plugin_stargazers: yes
-          plugin_stargazers_charts_type: classic
-          plugin_lines: yes
-          plugin_lines_sections: repositories, recent
-          repositories: 100
-          repositories_forks: no
-          # Include private repositories (requires 'repo' scope in token)
-          repositories_affiliations: owner, collaborator
-
-      - name: Generate medias metrics
-        uses: c4m1r/c4m1r@main
-        with:
-          token: ${{ secrets.repo_c4m1r_metrics }}
-          user: c4m1r
-          template: classic
-          filename: medias.svg
+          filename: isocalendar.svg
           base: ""
-          plugin_languages: yes
-          plugin_languages_limit: 10
-          plugin_languages_sections: recently-used
-          plugin_languages_details: bytes-size, percentage
-          plugin_languages_ignored: html, css, tex, less, dockerfile, makefile, qmake, lex, cmake, shell, gnuplot
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
-          plugin_stargazers: yes
-          plugin_stargazers_charts_type: graph
-          plugin_habits: yes
-          plugin_habits_sections: charts, facts
-          plugin_habits_facts: yes
-          plugin_habits_charts: yes
-          repositories: 100
-          repositories_forks: no
-          repositories_affiliations: owner, collaborator
+          output_action: commit
 
-      - name: Generate sponsors metrics
-        uses: c4m1r/c4m1r@main
+      - name: Generate languages.svg
+        uses: ./
         with:
-          token: ${{ secrets.repo_c4m1r_metrics }}
+          token: ${{ secrets.METRICS_TOKEN }}
           user: c4m1r
           template: classic
-          filename: sponsors.svg
+          filename: languages.svg
           base: ""
-          plugin_sponsors: yes
-          plugin_sponsors_sections: goal, list, about
-          plugin_sponsors_size: 24
+          plugin_languages: yes
+          plugin_languages_limit: 8
+          output_action: commit
 
-      - name: Generate achievements metrics
-        uses: c4m1r/c4m1r@main
+      - name: Generate licenses.svg
+        uses: ./
         with:
-          token: ${{ secrets.repo_c4m1r_metrics }}
+          token: ${{ secrets.METRICS_TOKEN }}
           user: c4m1r
           template: classic
-          filename: achievements.svg
+          filename: licenses.svg
           base: ""
-          plugin_achievements: yes
-          plugin_achievements_display: compact
-          plugin_achievements_threshold: C
-          plugin_achievements_secrets: yes
-          plugin_achievements_limit: 0
+          plugin_licenses: yes
+          plugin_licenses_legal: yes
+          plugin_licenses_ratio: yes
+          output_action: commit
 
-      - name: Generate placeholder
-        uses: c4m1r/c4m1r@main
+      - name: Generate followup.svg
+        uses: ./
         with:
-          token: ${{ secrets.repo_c4m1r_metrics }}
+          token: ${{ secrets.METRICS_TOKEN }}
           user: c4m1r
           template: classic
-          filename: placeholder.svg
-          base: metadata
-          config_display: columns
+          filename: followup.svg
+          base: ""
+          plugin_followup: yes
+          plugin_followup_sections: repositories
+          output_action: commit
 
+      - name: Generate calendar.svg
+        uses: ./
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: c4m1r
+          template: classic
+          filename: calendar.svg
+          base: ""
+          plugin_calendar: yes
+          plugin_calendar_limit: 0
+          output_action: commit
+
+      - name: Generate notable.svg
+        uses: ./
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: c4m1r
+          template: classic
+          filename: notable.svg
+          base: ""
+          plugin_notable: yes
+          plugin_notable_from: all
+          output_action: commit
+
+      - name: Generate traffic.svg
+        uses: ./
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: c4m1r
+          template: classic
+          filename: traffic.svg
+          base: ""
+          plugin_traffic: yes
+          output_action: commit
+
+      - name: Generate pagespeed.svg
+        uses: ./
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: c4m1r
+          template: classic
+          filename: pagespeed.svg
+          base: ""
+          plugin_pagespeed: yes
+          plugin_pagespeed_url: https://c4m1r.github.io
+          output_action: commit
+
+      - name: Generate anilist.svg
+        uses: ./
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: c4m1r
+          template: classic
+          filename: anilist.svg
+          base: ""
+          plugin_anilist: yes
+          plugin_anilist_user: an0n72
+          plugin_anilist_sections: favorites
+          output_action: commit
