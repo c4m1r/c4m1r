@@ -25,6 +25,8 @@ jobs:
           user: c4m1r
           template: classic
           filename: general.svg
+          # Automatically commit generated files to repository (default behavior)
+          output_action: commit
           base: header, activity, community, repositories, metadata
           plugin_languages: yes
           plugin_languages_limit: 8
