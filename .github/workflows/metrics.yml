@@ -17,11 +17,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Generate isocalendar.svg
         uses: ./
         with:
           token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ github.token }}
           user: c4m1r
           template: classic
           filename: isocalendar.svg
@@ -34,6 +37,7 @@ jobs:
         uses: ./
         with:
           token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ github.token }}
           user: c4m1r
           template: classic
           filename: languages.svg
@@ -46,6 +50,7 @@ jobs:
         uses: ./
         with:
           token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ github.token }}
           user: c4m1r
           template: classic
           filename: licenses.svg
@@ -59,6 +64,7 @@ jobs:
         uses: ./
         with:
           token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ github.token }}
           user: c4m1r
           template: classic
           filename: followup.svg
@@ -71,6 +77,7 @@ jobs:
         uses: ./
         with:
           token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ github.token }}
           user: c4m1r
           template: classic
           filename: calendar.svg
@@ -83,6 +90,7 @@ jobs:
         uses: ./
         with:
           token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ github.token }}
           user: c4m1r
           template: classic
           filename: notable.svg
@@ -95,6 +103,7 @@ jobs:
         uses: ./
         with:
           token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ github.token }}
           user: c4m1r
           template: classic
           filename: traffic.svg
@@ -106,6 +115,7 @@ jobs:
         uses: ./
         with:
           token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ github.token }}
           user: c4m1r
           template: classic
           filename: pagespeed.svg
@@ -118,6 +128,7 @@ jobs:
         uses: ./
         with:
           token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ github.token }}
           user: c4m1r
           template: classic
           filename: anilist.svg
