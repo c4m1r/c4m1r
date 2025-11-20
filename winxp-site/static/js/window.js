@@ -82,12 +82,24 @@ class Window {
 
         // Button events
         if (minimizeBtn) {
-            minimizeBtn.addEventListener('click', () => this.desktop.minimizeWindow(this.id));
+            minimizeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.desktop.minimizeWindow(this.id);
+            });
+            minimizeBtn.addEventListener('mousedown', (e) => e.stopPropagation());
         }
         if (maximizeBtn) {
-            maximizeBtn.addEventListener('click', () => this.toggleMaximize());
+            maximizeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.toggleMaximize();
+            });
+            maximizeBtn.addEventListener('mousedown', (e) => e.stopPropagation());
         }
-        closeBtn.addEventListener('click', () => this.desktop.closeWindow(this.id));
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.desktop.closeWindow(this.id);
+        });
+        closeBtn.addEventListener('mousedown', (e) => e.stopPropagation());
 
         // Resize handles
         if (this.appConfig.resizable) {
@@ -269,36 +281,36 @@ class Window {
                 <div class="explorer-toolbar">
                     <div class="toolbar-buttons">
                         <button class="toolbar-btn" id="back-btn" disabled title="Back">
-                            <img src="/static/images/windowsIcons/back.png" alt="Back">
+                            <img src="./images/windowsIcons/back.png" alt="Back">
                         </button>
                         <button class="toolbar-btn" id="forward-btn" disabled title="Forward">
-                            <img src="/static/images/windowsIcons/forward.png" alt="Forward">
+                            <img src="./images/windowsIcons/forward.png" alt="Forward">
                         </button>
                         <div class="toolbar-separator"></div>
                         <button class="toolbar-btn" id="up-btn" title="Up">
-                            <img src="/static/images/windowsIcons/up.png" alt="Up">
+                            <img src="./images/windowsIcons/up.png" alt="Up">
                         </button>
                         <div class="toolbar-separator"></div>
                         <button class="toolbar-btn" id="cut-btn" disabled title="Cut">
-                            <img src="/static/images/windowsIcons/cut.png" alt="Cut">
+                            <img src="./images/windowsIcons/cut.png" alt="Cut">
                         </button>
                         <button class="toolbar-btn" id="copy-btn" disabled title="Copy">
-                            <img src="/static/images/windowsIcons/copy.png" alt="Copy">
+                            <img src="./images/windowsIcons/copy.png" alt="Copy">
                         </button>
                         <button class="toolbar-btn" id="paste-btn" disabled title="Paste">
-                            <img src="/static/images/windowsIcons/paste.png" alt="Paste">
+                            <img src="./images/windowsIcons/paste.png" alt="Paste">
                         </button>
                         <div class="toolbar-separator"></div>
                         <button class="toolbar-btn" id="delete-btn" disabled title="Delete">
-                            <img src="/static/images/windowsIcons/delete.png" alt="Delete">
+                            <img src="./images/windowsIcons/delete.png" alt="Delete">
                         </button>
                         <div class="toolbar-separator"></div>
                         <button class="toolbar-btn" id="properties-btn" title="Properties">
-                            <img src="/static/images/windowsIcons/properties.png" alt="Properties">
+                            <img src="./images/windowsIcons/properties.png" alt="Properties">
                         </button>
                         <div class="toolbar-separator"></div>
                         <button class="toolbar-btn" id="views-btn" title="Views">
-                            <img src="/static/images/windowsIcons/views.png" alt="Views">
+                            <img src="./images/windowsIcons/views.png" alt="Views">
                         </button>
                     </div>
                 </div>
@@ -321,23 +333,23 @@ class Window {
                         </div>
                         <div class="sidebar-tree">
                             <div class="tree-item expanded">
-                                <img src="/static/images/windowsIcons/desktop.png" alt="Desktop" class="tree-icon">
+                                <img src="./images/windowsIcons/desktop.png" alt="Desktop" class="tree-icon">
                                 <span>Desktop</span>
                             </div>
                             <div class="tree-item">
-                                <img src="/static/images/windowsIcons/my-documents.png" alt="My Documents" class="tree-icon">
+                                <img src="./images/windowsIcons/my-documents.png" alt="My Documents" class="tree-icon">
                                 <span>My Documents</span>
                             </div>
                             <div class="tree-item">
-                                <img src="/static/images/windowsIcons/my-computer.png" alt="My Computer" class="tree-icon">
+                                <img src="./images/windowsIcons/my-computer.png" alt="My Computer" class="tree-icon">
                                 <span>My Computer</span>
                             </div>
                             <div class="tree-item expanded">
-                                <img src="/static/images/windowsIcons/hard-drive.png" alt="Local Disk (C:)" class="tree-icon">
+                                <img src="./images/windowsIcons/hard-drive.png" alt="Local Disk (C:)" class="tree-icon">
                                 <span>Local Disk (C:)</span>
                                 <div class="tree-children">
                                     <div class="tree-item">
-                                        <img src="/static/images/windowsIcons/folder.png" alt="${this.appConfig.name}" class="tree-icon">
+                                        <img src="./images/windowsIcons/folder.png" alt="${this.appConfig.name}" class="tree-icon">
                                         <span>${this.appConfig.name}</span>
                                     </div>
                                 </div>
@@ -350,16 +362,16 @@ class Window {
                         <div class="content-toolbar">
                             <div class="view-buttons">
                                 <button class="view-btn active" data-view="large-icons">
-                                    <img src="/static/images/windowsIcons/large-icons.png" alt="Large Icons">
+                                    <img src="./images/windowsIcons/large-icons.png" alt="Large Icons">
                                 </button>
                                 <button class="view-btn" data-view="small-icons">
-                                    <img src="/static/images/windowsIcons/small-icons.png" alt="Small Icons">
+                                    <img src="./images/windowsIcons/small-icons.png" alt="Small Icons">
                                 </button>
                                 <button class="view-btn" data-view="list">
-                                    <img src="/static/images/windowsIcons/list.png" alt="List">
+                                    <img src="./images/windowsIcons/list.png" alt="List">
                                 </button>
                                 <button class="view-btn" data-view="details">
-                                    <img src="/static/images/windowsIcons/details.png" alt="Details">
+                                    <img src="./images/windowsIcons/details.png" alt="Details">
                                 </button>
                             </div>
                         </div>
@@ -369,7 +381,7 @@ class Window {
 
         contents.forEach(item => {
             const isFolder = item.type === 'folder';
-            const iconSrc = isFolder ? '/static/images/windowsIcons/folder.png' : '/static/images/windowsIcons/file.png';
+            const iconSrc = isFolder ? '/images/windowsIcons/folder.png' : '/images/windowsIcons/file.png';
 
             html += `
                 <div class="content-item ${isFolder ? 'folder' : 'file'}" data-type="${item.type}" data-name="${item.name}">

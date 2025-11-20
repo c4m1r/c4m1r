@@ -264,20 +264,349 @@ class Desktop {
     }
 
     async loadConfig() {
-        try {
-            const response = await fetch('/api/config');
-            this.config = await response.json();
-            console.log('Config loaded:', this.config);
-        } catch (error) {
-            console.error('Failed to load config:', error);
-            // Fallback to default config
+        // Use embedded config for static hosting
             this.config = {
-                system: { iconSize: 32, iconTextSize: 11, desktopGridSize: 80 },
-                apps: {},
-                desktopIcons: [],
-                startMenuItems: []
-            };
-        }
+            "system": {
+                "iconSize": 32,
+                "iconTextSize": 11,
+                "desktopGridSize": 80,
+                "defaultWallpaper": "./images/wallpaper.jpg"
+            },
+            "apps": {
+                "minesweeper": {
+                    "name": "Minesweeper",
+                    "icon": "./apps/minesweeper/mine-icon.png",
+                    "type": "local",
+                    "category": "game",
+                    "description": "Classic Minesweeper game",
+                    "defaultSize": {
+                        "width": 170,
+                        "height": 280
+                    },
+                    "defaultPosition": {
+                        "x": 180,
+                        "y": 170
+                    },
+                    "resizable": false,
+                    "minimizable": true,
+                    "maximizable": false,
+                    "multiInstance": true,
+                    "hasMenu": true,
+                    "menuData": "minesweeper-menu.js",
+                    "jsFiles": ["minesweeper.js"],
+                    "cssFiles": ["minesweeper.css"],
+                    "author": "Original from OnlineWinXP project"
+                },
+                "notepad": {
+                    "name": "Notepad",
+                    "icon": "./apps/notepad/327(16x16).png",
+                    "type": "local",
+                    "category": "utility",
+                    "description": "Simple text editor",
+                    "defaultSize": {
+                        "width": 660,
+                        "height": 500
+                    },
+                    "defaultPosition": {
+                        "x": 270,
+                        "y": 60
+                    },
+                    "resizable": true,
+                    "minimizable": true,
+                    "maximizable": true,
+                    "multiInstance": true,
+                    "hasMenu": true,
+                    "menuData": "notepad-menu.js",
+                    "jsFiles": ["notepad.js"],
+                    "cssFiles": ["notepad.css"],
+                    "author": "Original from OnlineWinXP project"
+                },
+                "internet-explorer": {
+                    "name": "Internet Explorer",
+                    "icon": "./apps/internet-explorer/ie-paper.png",
+                    "type": "iframe",
+                    "url": "https://www.google.com",
+                    "category": "browser",
+                    "description": "Web browser",
+                    "defaultSize": {
+                        "width": 800,
+                        "height": 600
+                    },
+                    "defaultPosition": {
+                        "x": 130,
+                        "y": 20
+                    },
+                    "resizable": true,
+                    "minimizable": true,
+                    "maximizable": true,
+                    "multiInstance": true,
+                    "author": "Microsoft Internet Explorer"
+                },
+                "paint": {
+                    "name": "Paint",
+                    "icon": "./apps/paint/680(16x16).png",
+                    "type": "local",
+                    "category": "graphics",
+                    "description": "Simple drawing application",
+                    "defaultSize": {
+                        "width": 800,
+                        "height": 600
+                    },
+                    "defaultPosition": {
+                        "x": 280,
+                        "y": 70
+                    },
+                    "resizable": true,
+                    "minimizable": true,
+                    "maximizable": true,
+                    "multiInstance": true,
+                    "hasMenu": true,
+                    "menuData": "paint-menu.js",
+                    "jsFiles": ["paint.js"],
+                    "cssFiles": ["paint.css"],
+                    "author": "Original from OnlineWinXP project"
+                },
+                "winamp": {
+                    "name": "Winamp",
+                    "icon": "./images/windowsIcons/winamp.png",
+                    "type": "local",
+                    "category": "media",
+                    "description": "Classic Winamp media player",
+                    "defaultSize": {
+                        "width": 320,
+                        "height": 200
+                    },
+                    "defaultPosition": {
+                        "x": 10,
+                        "y": 10
+                    },
+                    "resizable": false,
+                    "minimizable": true,
+                    "maximizable": false,
+                    "multiInstance": false,
+                    "author": "Webamp.org"
+                },
+                "my-computer": {
+                    "name": "My Computer",
+                    "icon": "./apps/my-computer/676(16x16).png",
+                    "type": "local",
+                    "category": "system",
+                    "description": "Computer explorer",
+                    "defaultSize": {
+                        "width": 660,
+                        "height": 500
+                    },
+                    "defaultPosition": {
+                        "x": 250,
+                        "y": 40
+                    },
+                    "resizable": true,
+                    "minimizable": true,
+                    "maximizable": true,
+                    "multiInstance": false,
+                    "hasMenu": true,
+                    "menuData": "mycomputer-menu.js",
+                    "jsFiles": ["my-computer.js"],
+                    "cssFiles": ["my-computer.css"],
+                    "author": "Microsoft Windows"
+                },
+                "gamedev": {
+                    "name": "GameDev",
+                    "icon": "./images/windowsIcons/folder-gamedev.png",
+                    "type": "folder",
+                    "category": "folder",
+                    "description": "Game Development projects",
+                    "defaultSize": {
+                        "width": 700,
+                        "height": 500
+                    },
+                    "defaultPosition": {
+                        "x": 350,
+                        "y": 100
+                    },
+                    "resizable": true,
+                    "minimizable": true,
+                    "maximizable": true,
+                    "multiInstance": false,
+                    "hasMenu": false,
+                    "contents": [
+                        {"name": "Prototypes", "type": "folder", "icon": "./images/windowsIcons/folder.png"}
+                    ],
+                    "author": "Windows XP"
+                },
+                "prototypes": {
+                    "name": "Prototypes",
+                    "icon": "./images/windowsIcons/folder.png",
+                    "type": "folder",
+                    "category": "folder",
+                    "description": "Game prototypes and demos",
+                    "path": "C:\\GameDev\\Prototypes",
+                    "defaultSize": {
+                        "width": 700,
+                        "height": 500
+                    },
+                    "defaultPosition": {
+                        "x": 400,
+                        "y": 150
+                    },
+                    "resizable": true,
+                    "minimizable": true,
+                    "maximizable": true,
+                    "multiInstance": false,
+                    "hasMenu": false,
+                    "contents": [
+                        {"name": "ASCII Antihero.exe", "type": "exe", "icon": "./images/windowsIcons/application.png"},
+                        {"name": "ASCII Antihero readme.txt", "type": "txt", "icon": "./images/windowsIcons/text-file.png"},
+                        {"name": "Emoji Survivor.exe", "type": "exe", "icon": "./images/windowsIcons/application.png"},
+                        {"name": "Emoji Survivor.txt", "type": "txt", "icon": "./images/windowsIcons/text-file.png"}
+                    ],
+                    "author": "GameDev Projects"
+                },
+                "calculator": {
+                    "name": "Calculator",
+                    "icon": "./images/windowsIcons/300(16x16).png",
+                    "type": "local",
+                    "category": "utility",
+                    "description": "Windows Calculator",
+                    "defaultSize": {
+                        "width": 220,
+                        "height": 280
+                    },
+                    "defaultPosition": {
+                        "x": 50,
+                        "y": 50
+                    },
+                    "resizable": false,
+                    "minimizable": true,
+                    "maximizable": false,
+                    "multiInstance": true,
+                    "hasMenu": true,
+                    "menuData": "calculator-menu.js",
+                    "jsFiles": ["calculator.js"],
+                    "cssFiles": ["calculator.css"],
+                    "author": "Microsoft"
+                }
+            },
+            "desktopIcons": [
+                {
+                    "id": "internet-explorer",
+                    "app": "internet-explorer",
+                    "title": "Internet Explorer",
+                    "icon": "./apps/internet-explorer/ie-paper.png",
+                    "onDesktop": true,
+                    "position": {"x": 20, "y": 20}
+                },
+                {
+                    "id": "minesweeper",
+                    "app": "minesweeper",
+                    "title": "Minesweeper",
+                    "icon": "./apps/minesweeper/mine-icon.png",
+                    "onDesktop": true,
+                    "position": {"x": 20, "y": 120}
+                },
+                {
+                    "id": "my-computer",
+                    "app": "my-computer",
+                    "title": "My Computer",
+                    "icon": "./apps/my-computer/676(16x16).png",
+                    "onDesktop": true,
+                    "position": {"x": 20, "y": 220}
+                },
+                {
+                    "id": "notepad",
+                    "app": "notepad",
+                    "title": "Notepad",
+                    "icon": "./apps/notepad/327(16x16).png",
+                    "onDesktop": true,
+                    "position": {"x": 120, "y": 20}
+                },
+                {
+                    "id": "winamp",
+                    "app": "winamp",
+                    "title": "Winamp",
+                    "icon": "./apps/winamp/winamp.png",
+                    "onDesktop": true,
+                    "position": {"x": 120, "y": 120}
+                },
+                {
+                    "id": "paint",
+                    "app": "paint",
+                    "title": "Paint",
+                    "icon": "./apps/paint/680(16x16).png",
+                    "onDesktop": true,
+                    "position": {"x": 120, "y": 220}
+                },
+                {
+                    "id": "gamedev",
+                    "app": "gamedev",
+                    "title": "GameDev",
+                    "icon": "./images/windowsIcons/folder-gamedev.png",
+                    "onDesktop": true,
+                    "position": {"x": 220, "y": 20}
+                },
+                {
+                    "id": "calculator",
+                    "app": "calculator",
+                    "title": "Calculator",
+                    "icon": "./images/windowsIcons/300(16x16).png",
+                    "onDesktop": true,
+                    "position": {"x": 220, "y": 120}
+                }
+            ],
+            "startMenuItems": [
+                {
+                    "name": "Programs",
+                    "icon": "./images/windowsIcons/all-programs.ico",
+                    "type": "menu",
+                    "items": [
+                        {
+                            "name": "Internet",
+                            "app": "internet-explorer"
+                        },
+                        {
+                            "name": "Minesweeper",
+                            "app": "minesweeper"
+                        },
+                        {
+                            "name": "Notepad",
+                            "app": "notepad"
+                        },
+                        {
+                            "name": "Paint",
+                            "app": "paint"
+                        },
+                        {
+                            "name": "GameDev",
+                            "app": "gamedev"
+                        }
+                    ]
+                },
+                {
+                    "name": "My Computer",
+                    "app": "my-computer"
+                },
+                {
+                    "name": "Control Panel",
+                    "folder": "control-panel"
+                },
+                {
+                    "name": "My Network Places",
+                    "folder": "network-places"
+                },
+                {
+                    "type": "separator"
+                },
+                {
+                    "name": "Log Off",
+                    "action": "log-off"
+                },
+                {
+                    "name": "Turn Off Computer",
+                    "action": "turn-off"
+                }
+            ]
+        };
+        console.log('Config loaded (static):', this.config);
     }
 
     setupDesktopIcons() {
@@ -292,6 +621,10 @@ class Desktop {
         // Применяем стили для иконок
         const style = document.createElement('style');
         style.textContent = `
+            .desktop-icon-img-container {
+                width: ${iconSize}px !important;
+                height: ${iconSize}px !important;
+            }
             .desktop-icon img {
                 width: ${iconSize}px !important;
                 height: ${iconSize}px !important;
@@ -323,8 +656,12 @@ class Desktop {
                 }
 
                 iconDiv.innerHTML = `
-                    <img src="${iconConfig.icon}" alt="">
-                    <span>${iconConfig.title}</span>
+                    <div class="desktop-icon-img-container">
+                        <img src="${iconConfig.icon}" alt="${iconConfig.title}">
+                    </div>
+                    <div class="desktop-icon-text-container">
+                        <span>${iconConfig.title}</span>
+                    </div>
                 `;
 
                 iconDiv.addEventListener('dblclick', () => {
@@ -365,7 +702,7 @@ class Desktop {
                         itemDiv.dataset.app = subItem.app;
 
                         const appConfig = this.config.apps[subItem.app];
-                        const iconPath = appConfig ? appConfig.icon : '/static/images/windowsIcons/folder.png';
+                        const iconPath = appConfig ? appConfig.icon : './images/windowsIcons/folder.png';
 
                         itemDiv.innerHTML = `
                             <img src="${iconPath}" alt="">
@@ -399,15 +736,15 @@ class Desktop {
                     itemDiv.id = item.action.replace('-', '-');
                 }
 
-                let iconPath = '/static/images/windowsIcons/folder.png';
+                let iconPath = './images/windowsIcons/folder.png';
                 if (item.app && this.config.apps[item.app]) {
                     iconPath = this.config.apps[item.app].icon;
                 } else if (item.folder && this.config.folders[item.folder]) {
                     iconPath = this.config.folders[item.folder].icon;
                 } else if (item.action === 'log-off') {
-                    iconPath = '/static/images/windowsIcons/318(16x16).png';
+                    iconPath = './images/windowsIcons/318(16x16).png';
                 } else if (item.action === 'turn-off') {
-                    iconPath = '/static/images/windowsIcons/windows-off.png';
+                    iconPath = './images/windowsIcons/windows-off.png';
                 }
 
                 itemDiv.innerHTML = `

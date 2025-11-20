@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Windows XP Desktop</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="icon" href="/static/images/windowsIcons/290.ico">
+    <link rel="stylesheet" href="./css/style.css?v=6">
+    <link rel="icon" href="./images/windowsIcons/290.ico?v=6">
 </head>
 <body>
     <!-- Desktop Background -->
@@ -13,28 +13,60 @@
         <!-- Desktop Icons -->
         <div id="desktop-icons" class="desktop-icons">
             <div class="desktop-icon" data-app="internet-explorer">
-                <img src="/static/images/windowsIcons/ie.png" alt="Internet Explorer">
-                <span>The Chrome Explorer</span>
+                <div class="desktop-icon-img-container">
+                    <img src="./images/windowsIcons/ie.png" alt="Internet Explorer">
+                </div>
+                <div class="desktop-icon-text-container">
+                    <span>The Chrome Explorer</span>
+                </div>
             </div>
             <div class="desktop-icon" data-app="minesweeper">
-                <img src="/static/images/minesweeper/mine-icon.png" alt="Minesweeper">
-                <span>Minesweeper</span>
+                <div class="desktop-icon-img-container">
+                    <img src="./apps/minesweeper/mine-icon.png" alt="Minesweeper">
+                </div>
+                <div class="desktop-icon-text-container">
+                    <span>Minesweeper</span>
+                </div>
             </div>
             <div class="desktop-icon" data-app="my-computer">
-                <img src="/static/images/windowsIcons/676(32x32).png" alt="My Computer">
-                <span>Abstract Computer</span>
+                <div class="desktop-icon-img-container">
+                    <img src="./images/windowsIcons/676(32x32).png" alt="My Computer">
+                </div>
+                <div class="desktop-icon-text-container">
+                    <span>Abstract Computer</span>
+                </div>
             </div>
             <div class="desktop-icon" data-app="notepad">
-                <img src="/static/images/windowsIcons/327(32x32).png" alt="Notepad">
-                <span>Notepad</span>
+                <div class="desktop-icon-img-container">
+                    <img src="./images/windowsIcons/327(32x32).png" alt="Notepad">
+                </div>
+                <div class="desktop-icon-text-container">
+                    <span>Notepad</span>
+                </div>
             </div>
             <div class="desktop-icon" data-app="winamp">
-                <img src="/static/images/windowsIcons/winamp.png" alt="Winamp">
-                <span>Winamp</span>
+                <div class="desktop-icon-img-container">
+                    <img src="./images/windowsIcons/winamp.png" alt="Winamp">
+                </div>
+                <div class="desktop-icon-text-container">
+                    <span>Winamp</span>
+                </div>
             </div>
             <div class="desktop-icon" data-app="paint">
-                <img src="/static/images/windowsIcons/680(32x32).png" alt="Paint">
-                <span>Paint</span>
+                <div class="desktop-icon-img-container">
+                    <img src="./images/windowsIcons/680(32x32).png" alt="Paint">
+                </div>
+                <div class="desktop-icon-text-container">
+                    <span>Paint</span>
+                </div>
+            </div>
+            <div class="desktop-icon" data-app="calculator">
+                <div class="desktop-icon-img-container">
+                    <img src="./images/windowsIcons/300(16x16).png" alt="Calculator">
+                </div>
+                <div class="desktop-icon-text-container">
+                    <span>Calculator</span>
+                </div>
             </div>
         </div>
 
@@ -49,7 +81,7 @@
     <div id="taskbar" class="taskbar">
         <!-- Start Button -->
         <div id="start-button" class="start-button">
-            <img src="/static/images/windowsIcons/start.png" alt="Start">
+            <img src="./images/windowsIcons/start.png" alt="Start">
             <span>start</span>
         </div>
 
@@ -59,7 +91,7 @@
         <!-- System Tray -->
         <div id="system-tray" class="system-tray">
             <div id="volume-icon" class="system-tray-icon">
-                <img src="/static/images/windowsIcons/volume.svg" alt="Volume" class="volume-icon">
+                <img src="./images/windowsIcons/volume.svg" alt="Volume" class="volume-icon">
             </div>
             <span id="clock">12:00 PM</span>
         </div>
@@ -92,7 +124,7 @@
     <!-- Volume Popup -->
     <div id="volume-popup" class="volume-popup hidden">
         <div class="volume-header">
-            <img src="/static/images/windowsIcons/speaker.svg" alt="Speaker" class="volume-speaker-icon">
+            <img src="./images/windowsIcons/speaker.svg" alt="Speaker" class="volume-speaker-icon">
             <span>Masters Volume</span>
         </div>
         <div class="volume-slider-container">
@@ -111,7 +143,7 @@
     <div id="start-menu" class="start-menu hidden">
         <div class="start-menu-header">
             <div class="start-menu-logo">
-                <img src="/static/images/windowsIcons/windows.png" alt="Windows">
+                <img src="./images/windowsIcons/windows.png" alt="Windows">
             </div>
             <div class="start-menu-title">
                 <span class="start-menu-title-main">Windows</span>
@@ -128,16 +160,16 @@
         </div>
         <div class="start-menu-bottom">
             <div class="start-menu-user">
-                <img src="/static/images/windowsIcons/user.png" alt="User" class="user-icon">
+                <img src="./images/windowsIcons/user.png" alt="User" class="user-icon">
                 <span class="user-name">Administrator</span>
             </div>
             <div class="start-menu-bottom-buttons">
                 <div class="start-menu-item" id="log-off">
-                    <img src="/static/images/windowsIcons/318(16x16).png" alt="">
+                    <img src="./images/windowsIcons/318(16x16).png" alt="">
                     <span>Log Off</span>
                 </div>
                 <div class="start-menu-item" id="turn-off">
-                    <img src="/static/images/windowsIcons/windows-off.png" alt="">
+                    <img src="./images/windowsIcons/windows-off.png" alt="">
                     <span>Turn Off Computer</span>
                 </div>
             </div>
@@ -160,9 +192,11 @@
         </div>
     </div>
 
-    <script src="/static/js/desktop.js"></script>
-    <script src="/static/js/window.js"></script>
-    <script src="/static/js/original-apps.js"></script>
-    <script src="/static/js/apps.js"></script>
+    <script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script>
+    <script src="./js/winamp-tracks.js?v=6"></script>
+    <script src="./js/desktop.js?v=6"></script>
+    <script src="./js/window.js?v=6"></script>
+    <script src="./js/original-apps.js?v=6"></script>
+    <script src="./js/apps.js?v=6"></script>
 </body>
 </html>
