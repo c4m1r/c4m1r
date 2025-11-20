@@ -1,0 +1,417 @@
+{
+  "system": {
+    "iconSize": 32,
+    "iconTextSize": 11,
+    "desktopGridSize": 80,
+    "defaultWallpaper": "/static/images/wallpaper.jpg"
+  },
+  "apps": {
+    "minesweeper": {
+      "name": "Minesweeper",
+      "icon": "/static/apps/minesweeper/mine-icon.png",
+      "type": "local",
+      "category": "game",
+      "description": "Classic Minesweeper game",
+      "defaultSize": {
+        "width": 170,
+        "height": 280
+      },
+      "defaultPosition": {
+        "x": 180,
+        "y": 170
+      },
+      "resizable": false,
+      "minimizable": true,
+      "maximizable": false,
+      "multiInstance": true,
+      "hasMenu": true,
+      "menuData": "minesweeper-menu.js",
+      "jsFiles": ["minesweeper.js"],
+      "cssFiles": ["minesweeper.css"],
+      "author": "Original from OnlineWinXP project"
+    },
+    "notepad": {
+      "name": "Notepad",
+      "icon": "/static/apps/notepad/327(16x16).png",
+      "type": "local",
+      "category": "utility",
+      "description": "Simple text editor",
+      "defaultSize": {
+        "width": 660,
+        "height": 500
+      },
+      "defaultPosition": {
+        "x": 270,
+        "y": 60
+      },
+      "resizable": true,
+      "minimizable": true,
+      "maximizable": true,
+      "multiInstance": true,
+      "hasMenu": true,
+      "menuData": "notepad-menu.js",
+      "jsFiles": ["notepad.js"],
+      "cssFiles": ["notepad.css"],
+      "author": "Original from OnlineWinXP project"
+    },
+    "internet-explorer": {
+      "name": "Internet Explorer",
+      "icon": "/static/apps/internet-explorer/ie-paper.png",
+      "type": "iframe",
+      "url": "https://www.google.com",
+      "category": "browser",
+      "description": "Web browser",
+      "defaultSize": {
+        "width": 800,
+        "height": 600
+      },
+      "defaultPosition": {
+        "x": 130,
+        "y": 20
+      },
+      "resizable": true,
+      "minimizable": true,
+      "maximizable": true,
+      "multiInstance": true,
+      "author": "Microsoft Internet Explorer"
+    },
+    "paint": {
+      "name": "Paint",
+      "icon": "/static/apps/paint/680(16x16).png",
+      "type": "local",
+      "category": "graphics",
+      "description": "Simple drawing application",
+      "defaultSize": {
+        "width": 800,
+        "height": 600
+      },
+      "defaultPosition": {
+        "x": 280,
+        "y": 70
+      },
+      "resizable": true,
+      "minimizable": true,
+      "maximizable": true,
+      "multiInstance": true,
+      "hasMenu": true,
+      "menuData": "paint-menu.js",
+      "jsFiles": ["paint.js"],
+      "cssFiles": ["paint.css"],
+      "author": "Original from OnlineWinXP project"
+    },
+    "winamp": {
+      "name": "Winamp",
+      "icon": "/static/apps/winamp/winamp.png",
+      "type": "iframe",
+      "url": "https://webamp.org",
+      "category": "media",
+      "description": "Classic Winamp media player",
+      "defaultSize": {
+        "width": 275,
+        "height": 116
+      },
+      "defaultPosition": {
+        "x": 10,
+        "y": 10
+      },
+      "resizable": false,
+      "minimizable": true,
+      "maximizable": false,
+      "multiInstance": false,
+      "author": "Webamp.org"
+    },
+    "my-computer": {
+      "name": "My Computer",
+      "icon": "/static/apps/my-computer/676(16x16).png",
+      "type": "local",
+      "category": "system",
+      "description": "Computer explorer",
+      "defaultSize": {
+        "width": 660,
+        "height": 500
+      },
+      "defaultPosition": {
+        "x": 250,
+        "y": 40
+      },
+      "resizable": true,
+      "minimizable": true,
+      "maximizable": true,
+      "multiInstance": false,
+      "hasMenu": true,
+      "menuData": "mycomputer-menu.js",
+      "jsFiles": ["my-computer.js"],
+      "cssFiles": ["my-computer.css"],
+      "author": "Microsoft Windows"
+    },
+    "gamedev": {
+      "name": "GameDev",
+      "icon": "/static/images/windowsIcons/folder-gamedev.png",
+      "type": "folder",
+      "category": "folder",
+      "description": "Game Development projects",
+      "defaultSize": {
+        "width": 700,
+        "height": 500
+      },
+      "defaultPosition": {
+        "x": 350,
+        "y": 100
+      },
+      "resizable": true,
+      "minimizable": true,
+      "maximizable": true,
+      "multiInstance": false,
+      "hasMenu": false,
+      "contents": [
+        {"name": "Prototypes", "type": "folder", "icon": "/static/images/windowsIcons/folder.png"}
+      ],
+      "author": "Windows XP"
+    },
+    "prototypes": {
+      "name": "Prototypes",
+      "icon": "/static/images/windowsIcons/folder.png",
+      "type": "folder",
+      "category": "folder",
+      "description": "Game prototypes and demos",
+      "path": "C:\\GameDev\\Prototypes",
+      "defaultSize": {
+        "width": 700,
+        "height": 500
+      },
+      "defaultPosition": {
+        "x": 400,
+        "y": 150
+      },
+      "resizable": true,
+      "minimizable": true,
+      "maximizable": true,
+      "multiInstance": false,
+      "hasMenu": false,
+      "contents": [
+        {"name": "ASCII Antihero.exe", "type": "exe", "icon": "/static/images/windowsIcons/application.png"},
+        {"name": "ASCII Antihero readme.txt", "type": "txt", "icon": "/static/images/windowsIcons/text-file.png"},
+        {"name": "Emoji Survivor.exe", "type": "exe", "icon": "/static/images/windowsIcons/application.png"},
+        {"name": "Emoji Survivor.txt", "type": "txt", "icon": "/static/images/windowsIcons/text-file.png"}
+      ],
+      "author": "GameDev Projects"
+    }
+  },
+  "desktopIcons": [
+    {
+      "id": "internet-explorer",
+      "app": "internet-explorer",
+      "title": "Internet Explorer",
+      "icon": "/static/apps/internet-explorer/ie-paper.png",
+      "onDesktop": true,
+      "position": {"x": 20, "y": 20}
+    },
+    {
+      "id": "minesweeper",
+      "app": "minesweeper",
+      "title": "Minesweeper",
+      "icon": "/static/apps/minesweeper/mine-icon.png",
+      "onDesktop": true,
+      "position": {"x": 20, "y": 120}
+    },
+    {
+      "id": "my-computer",
+      "app": "my-computer",
+      "title": "My Computer",
+      "icon": "/static/apps/my-computer/676(16x16).png",
+      "onDesktop": true,
+      "position": {"x": 20, "y": 220}
+    },
+    {
+      "id": "notepad",
+      "app": "notepad",
+      "title": "Notepad",
+      "icon": "/static/apps/notepad/327(16x16).png",
+      "onDesktop": true,
+      "position": {"x": 120, "y": 20}
+    },
+    {
+      "id": "winamp",
+      "app": "winamp",
+      "title": "Winamp",
+      "icon": "/static/apps/winamp/winamp.png",
+      "onDesktop": true,
+      "position": {"x": 120, "y": 120}
+    },
+    {
+      "id": "paint",
+      "app": "paint",
+      "title": "Paint",
+      "icon": "/static/apps/paint/680(16x16).png",
+      "onDesktop": true,
+      "position": {"x": 120, "y": 220}
+    },
+    {
+      "id": "gamedev",
+      "app": "gamedev",
+      "title": "GameDev",
+      "icon": "/static/images/windowsIcons/folder-gamedev.png",
+      "onDesktop": true,
+      "position": {"x": 220, "y": 20}
+    }
+  ],
+  "folders": {
+    "my-documents": {
+      "name": "My Documents",
+      "icon": "/static/images/windowsIcons/folder.png",
+      "type": "folder",
+      "path": "/documents",
+      "contents": []
+    },
+    "program-files": {
+      "name": "Program Files",
+      "icon": "/static/images/windowsIcons/folder.png",
+      "type": "folder",
+      "path": "/program-files",
+      "contents": []
+    },
+    "windows": {
+      "name": "Windows",
+      "icon": "/static/images/windowsIcons/folder.png",
+      "type": "system-folder",
+      "path": "/windows",
+      "contents": []
+    },
+    "control-panel": {
+      "name": "Control Panel",
+      "icon": "/static/images/windowsIcons/control-panel.png",
+      "type": "control-panel",
+      "path": "/control-panel",
+      "contents": []
+    },
+    "network-places": {
+      "name": "My Network Places",
+      "icon": "/static/images/windowsIcons/network.png",
+      "type": "network",
+      "path": "/network",
+      "contents": []
+    }
+  },
+  "drives": {
+    "c-drive": {
+      "name": "Local Disk (C:)",
+      "icon": "/static/images/windowsIcons/hard-drive.png",
+      "type": "hard-drive",
+      "path": "C:",
+      "freeSpace": "2.1 GB",
+      "totalSpace": "10.0 GB"
+    },
+    "d-drive": {
+      "name": "CD-ROM (D:)",
+      "icon": "/static/images/windowsIcons/cd-drive.png",
+      "type": "cd-drive",
+      "path": "D:",
+      "status": "No disc inserted"
+    }
+  },
+  "startMenuItems": [
+    {
+      "name": "Programs",
+      "icon": "/static/images/windowsIcons/all-programs.ico",
+      "type": "menu",
+      "items": [
+        {
+          "name": "Internet",
+          "app": "internet-explorer"
+        },
+        {
+          "name": "Minesweeper",
+          "app": "minesweeper"
+        },
+        {
+          "name": "Notepad",
+          "app": "notepad"
+        },
+        {
+          "name": "Paint",
+          "app": "paint"
+        },
+        {
+          "name": "GameDev",
+          "app": "gamedev"
+        }
+      ]
+    },
+    {
+      "name": "My Computer",
+      "app": "my-computer"
+    },
+    {
+      "name": "Control Panel",
+      "folder": "control-panel"
+    },
+    {
+      "name": "My Network Places",
+      "folder": "network-places"
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "name": "Log Off",
+      "action": "log-off"
+    },
+    {
+      "name": "Turn Off Computer",
+      "action": "turn-off"
+    }
+  ],
+  "iframeApps": {
+    "external-browser": {
+      "name": "External Browser",
+      "icon": "/static/images/windowsIcons/ie.png",
+      "type": "iframe",
+      "url": "https://www.google.com",
+      "defaultSize": {
+        "width": 800,
+        "height": 600
+      },
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      },
+      "resizable": true,
+      "minimizable": true,
+      "maximizable": true,
+      "multiInstance": true
+    },
+    "external-mail": {
+      "name": "Web Mail",
+      "icon": "/static/images/windowsIcons/mail.png",
+      "type": "iframe",
+      "url": "https://mail.google.com",
+      "defaultSize": {
+        "width": 900,
+        "height": 700
+      },
+      "defaultPosition": {
+        "x": 100,
+        "y": 100
+      },
+      "resizable": true,
+      "minimizable": true,
+      "maximizable": true,
+      "multiInstance": true
+    }
+  },
+  "systemSettings": {
+    "wallpaper": "/static/images/wallpaper.jpg",
+    "theme": "windows-xp",
+    "sounds": {
+      "startup": "/static/sounds/startup.wav",
+      "shutdown": "/static/sounds/shutdown.wav",
+      "error": "/static/sounds/error.wav"
+    },
+    "desktopIcons": true,
+    "taskbar": {
+      "position": "bottom",
+      "autoHide": false,
+      "lock": false
+    }
+  }
+}
