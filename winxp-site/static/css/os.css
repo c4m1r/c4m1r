@@ -1,0 +1,542 @@
+/* Core OS Styles */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Tahoma', sans-serif;
+    user-select: none;
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Boot Screen */
+#boot-screen {
+    background-color: #000;
+    flex-direction: column;
+    color: white;
+}
+
+.boot-logo {
+    margin-bottom: 50px;
+}
+
+.loading-bar {
+    width: 200px;
+    height: 15px;
+    border: 1px solid #666;
+    padding: 2px;
+}
+
+.loading-progress {
+    width: 0%;
+    height: 100%;
+    background: #ccc;
+    animation: bootLoad 3s linear forwards;
+}
+
+@keyframes bootLoad {
+    to {
+        width: 100%;
+    }
+}
+
+/* Login Screen */
+#login-screen {
+    background-color: #003399;
+    background: linear-gradient(to bottom, #003399 0%, #0099cc 100%);
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    color: white;
+}
+
+.login-divider {
+    width: 2px;
+    height: 50px;
+    background: linear-gradient(to bottom, transparent, white, transparent);
+    margin: 0 20px;
+}
+
+.user-list {
+    display: flex;
+    gap: 20px;
+}
+
+.login-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.login-user:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.login-user img {
+    width: 64px;
+    height: 64px;
+    border-radius: 5px;
+    border: 2px solid white;
+    margin-bottom: 10px;
+}
+
+/* Desktop */
+#desktop {
+    background-size: cover;
+    background-position: center;
+}
+
+.desktop-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 100px);
+    grid-template-rows: repeat(auto-fill, 100px);
+    height: calc(100% - 30px);
+    padding: 10px;
+}
+
+.desktop-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.desktop-icon:hover {
+    background-color: rgba(0, 0, 255, 0.2);
+    border: 1px solid rgba(0, 0, 255, 0.4);
+}
+
+.desktop-icon img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 5px;
+}
+
+/* Window Manager */
+.window {
+    position: absolute;
+    background: #ececec;
+    border: 3px solid #0831d9;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    min-width: 200px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-bar {
+    background: linear-gradient(to bottom,
+            #0058ee 0%,
+            #3593ff 4%,
+            #288eff 6%,
+            #127dff 8%,
+            #036ffc 10%,
+            #0262ee 14%,
+            #0057e5 20%,
+            #0054e3 24%,
+            #0055eb 56%,
+            #005bf5 66%,
+            #026afe 76%,
+            #0062ef 86%,
+            #0052d6 92%,
+            #0040ab 94%,
+            #003092 100%);
+    padding: 3px 4px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+    height: 25px;
+    position: relative;
+    text-shadow: 1px 1px #000;
+}
+
+.title-bar::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    background: linear-gradient(to right, #1638e6 0%, transparent 100%);
+    top: 0;
+    bottom: 0;
+    width: 15px;
+    pointer-events: none;
+}
+
+.title-bar::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    background: linear-gradient(to left, #1638e6 0%, transparent 100%);
+    top: 0;
+    gap: 2px;
+    margin-right: 1px;
+}
+
+.title-bar-controls button {
+    position: relative;
+    width: 21px;
+    height: 21px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+
+.title-bar-controls button:hover {
+    filter: brightness(120%);
+}
+
+.title-bar-controls button:active {
+    filter: brightness(90%);
+}
+
+/* Minimize Button */
+.title-bar-controls button[aria-label="Minimize"] {
+    box-shadow: inset 0 -1px 2px 1px #4646ff;
+    background-image: radial-gradient(circle at 90% 90%,
+            #0054e9 0%,
+            #2263d5 55%,
+            #4479e4 70%,
+            #a3bbec 90%,
+            white 100%);
+}
+
+.title-bar-controls button[aria-label="Minimize"]::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 13px;
+    height: 3px;
+    width: 9px;
+    background-color: white;
+}
+
+/* Maximize Button */
+.title-bar-controls button[aria-label="Maximize"] {
+    box-shadow: inset 0 -1px 2px 1px #4646ff;
+    background-image: radial-gradient(circle at 90% 90%,
+            #0054e9 0%,
+            #2263d5 55%,
+            #4479e4 70%,
+            #a3bbec 90%,
+            white 100%);
+}
+
+.title-bar-controls button[aria-label="Maximize"]::before {
+    content: '';
+    position: absolute;
+    display: block;
+    left: 4px;
+    top: 4px;
+    box-shadow: inset 0 3px white, inset 0 0 0 1px white;
+    height: 11px;
+    width: 11px;
+}
+
+/* Close Button */
+.title-bar-controls button[aria-label="Close"] {
+    box-shadow: inset 0 -1px 2px 1px #da4600;
+    background-image: radial-gradient(circle at 90% 90%,
+            #cc4600 0%,
+            #dc6527 55%,
+            #cd7546 70%,
+            #ffccb2 90%,
+            white 100%);
+}
+
+.title-bar-controls button[aria-label="Close"]::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 2px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 2px;
+    background-color: white;
+}
+
+.title-bar-controls button[aria-label="Close"]::after {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 2px;
+    transform: rotate(-45deg);
+    height: 15px;
+    width: 2px;
+    background-color: white;
+}
+
+.window-body {
+    flex: 1;
+    padding: 0;
+    background: white;
+    overflow: auto;
+}
+
+/* Taskbar */
+#taskbar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(to bottom,
+            #1f2f86 0,
+            #3165c4 3%,
+            #3682e5 6%,
+            #4490e6 10%,
+            #3883e5 12%,
+            #2b71e0 15%,
+            #2663da 18%,
+            #235bd6 20%,
+            #2258d5 23%,
+            #2157d6 38%,
+            #245ddb 54%,
+            #2562df 86%,
+            #245fdc 89%,
+            #2158d4 92%,
+            #1d4ec0 95%,
+            #1941a5 98%);
+    display: flex;
+    align-items: center;
+    padding: 0;
+    z-index: 9999;
+}
+
+#start-button {
+    height: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+#start-button img {
+    height: 100%;
+    width: auto;
+    margin: 0;
+    object-fit: contain;
+}
+
+#start-button:hover {
+    filter: brightness(105%);
+}
+
+#start-button:active {
+    filter: brightness(85%);
+}
+
+#task-list {
+    flex: 1;
+    display: flex;
+    padding: 0 5px;
+    gap: 4px;
+}
+
+.task-button {
+    flex: 1;
+    max-width: 150px;
+    background: linear-gradient(to bottom, #3c81f3 0%, #2558d5 100%);
+    border: 1px solid #1f4e99;
+    border-radius: 2px;
+    color: white;
+    padding: 2px 8px;
+    font-size: 11px;
+    cursor: pointer;
+    box-shadow: inset -1px 0px rgba(0, 0, 0, 0.3),
+        inset 1px 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.task-button:hover {
+    background: linear-gradient(to bottom, #53a3ff 0%, #3576f3 100%);
+}
+
+.task-button:active {
+    align-items: center;
+    padding: 0 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid #E65100;
+}
+
+.start-user-icon {
+    width: 48px;
+    height: 48px;
+    border: 2px solid white;
+    border-radius: 3px;
+    margin-right: 10px;
+    background: #B3E5FC;
+}
+
+.start-body {
+    flex: 1;
+    display: flex;
+    background: white;
+}
+
+.start-left {
+    flex: 1;
+    padding: 5px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.start-right {
+    flex: 1;
+    padding: 5px;
+    background: #D1E8FF;
+    border-left: 1px solid #90CAF9;
+    display: flex;
+    flex-direction: column;
+}
+
+.start-item {
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: 36px;
+    margin-bottom: 2px;
+}
+
+.start-item:hover {
+    background-color: #2979FF;
+    color: white;
+}
+
+.start-item img {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+}
+
+.start-item-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.start-item-title {
+    font-size: 12px;
+}
+
+.start-subtitle {
+    font-size: 10px;
+    color: #666;
+}
+
+.start-item:hover .start-subtitle {
+    color: #DDD;
+}
+
+.start-separator {
+    height: 1px;
+    background: #CCC;
+    margin: 5px 10px;
+}
+
+.start-right .start-separator {
+    background: #90CAF9;
+}
+
+.start-footer {
+    height: 40px;
+    background: linear-gradient(to bottom, #42A5F5 0%, #1565C0 100%);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 10px;
+    border-top: 1px solid #90CAF9;
+}
+
+.start-footer-item {
+    color: white;
+    margin-left: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 11px;
+}
+
+.start-footer-item:hover {
+    text-decoration: underline;
+}
+
+.start-footer-item img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.font-bold .start-item-title {
+    font-weight: bold;
+}
+
+/* Context Menu */
+.context-menu {
+    position: absolute;
+    background: #ece9d8;
+    border: 1px outset #fff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    min-width: 150px;
+    z-index: 10000;
+}
+
+.menu-item {
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background: #3169c6;
+    color: white;
+}
+
+.menu-separator {
+    height: 1px;
+    background: #ccc;
+    margin: 2px 0;
+}

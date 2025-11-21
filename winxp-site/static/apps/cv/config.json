@@ -1,0 +1,13 @@
+{
+    "id": "cv",
+    "name": "My CV",
+    "icon": "images/icons/notepad.webp",
+    "type": "iframe",
+    "url": "/apps/cv/index.html",
+    "defaultSize": {
+        "width": 800,
+        "height": 600
+    },
+    "resizable": true,
+    "description": "Curriculum Vitae"
+}

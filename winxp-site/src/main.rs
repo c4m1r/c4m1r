@@ -15,12 +15,10 @@ use tower_http::services::ServeDir;
 async fn main() {
     // Build our application with a route
     let app = Router::new()
-        .route("/", get(root))
-        .route("/health", get(health_check))
         .route("/api/config", get(get_config))
         .route("/api/apps", get(get_apps_list))
         .route("/apps/{app}", get(app_handler))
-        .nest_service("/static", ServeDir::new("static"));
+        .fallback_service(ServeDir::new("static"));
 
     // Run our app with hyper
     let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
@@ -30,20 +28,8 @@ async fn main() {
     axum::serve(listener, app).await.unwrap();
 }
 
-async fn root() -> Html<&'static str> {
-    Html(include_str!("../static/index.html"))
-}
-
-async fn health_check() -> Json<serde_json::Value> {
-    Json(json!({
-        "status": "ok",
-        "version": env!("CARGO_PKG_VERSION"),
-        "timestamp": Utc::now().timestamp()
-    }))
-}
-
 async fn get_config() -> Result<Json<serde_json::Value>, StatusCode> {
-    match fs::read_to_string("config.json") {
+    match fs::read_to_string("static/config.json") {
         Ok(content) => match serde_json::from_str(&content) {
             Ok(config) => Ok(Json(config)),
             Err(_) => Err(StatusCode::INTERNAL_SERVER_ERROR),
@@ -53,7 +39,7 @@ async fn get_config() -> Result<Json<serde_json::Value>, StatusCode> {
 }
 
 async fn get_apps_list() -> Result<Json<serde_json::Value>, StatusCode> {
-    match fs::read_to_string("config.json") {
+    match fs::read_to_string("static/config.json") {
         Ok(content) => match serde_json::from_str::<serde_json::Value>(&content) {
             Ok(config) => {
                 if let Some(apps) = config.get("apps") {
@@ -84,7 +70,7 @@ async fn get_apps_list() -> Result<Json<serde_json::Value>, StatusCode> {
 
 async fn app_handler(Path(app): Path<String>) -> impl IntoResponse {
     // Check if app exists in config
-    match fs::read_to_string("config.json") {
+    match fs::read_to_string("static/config.json") {
         Ok(content) => match serde_json::from_str::<serde_json::Value>(&content) {
             Ok(config) => {
                 if let Some(apps) = config.get("apps") {

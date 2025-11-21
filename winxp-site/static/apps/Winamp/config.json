@@ -1,0 +1,13 @@
+{
+    "id": "winamp",
+    "name": "Winamp",
+    "icon": "images/icons/winamp.png",
+    "type": "iframe",
+    "url": "/apps/winamp/index.html",
+    "defaultSize": {
+        "width": 300,
+        "height": 400
+    },
+    "resizable": false,
+    "description": "Media player"
+}

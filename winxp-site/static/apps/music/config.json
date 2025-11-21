@@ -1,0 +1,13 @@
+{
+    "id": "music",
+    "name": "Windows Media Player",
+    "icon": "images/icons/music.webp",
+    "type": "iframe",
+    "url": "/apps/music/index.html",
+    "defaultSize": {
+        "width": 660,
+        "height": 600
+    },
+    "resizable": true,
+    "description": "Play music and videos"
+}

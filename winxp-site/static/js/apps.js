@@ -1,7 +1,7 @@
 // Application implementations
 
 // Minesweeper - Enhanced with dropdown menu
-Window.prototype.loadMinesweeper = function(contentDiv) {
+Window.prototype.loadMinesweeper = function (contentDiv) {
     // Create dropdown menu data
     const menuData = {
         Game: [
@@ -71,7 +71,7 @@ Window.prototype.loadMinesweeper = function(contentDiv) {
 };
 
 // Show dropdown menu for Minesweeper
-Window.prototype.showMinesweeperDropdown = function(menuName, items, menuItem, container) {
+Window.prototype.showMinesweeperDropdown = function (menuName, items, menuItem, container) {
     // Close existing dropdown
     container.innerHTML = '';
 
@@ -132,7 +132,7 @@ Window.prototype.showMinesweeperDropdown = function(menuName, items, menuItem, c
 };
 
 // Handle Minesweeper menu item clicks
-Window.prototype.handleMinesweeperMenuItem = function(itemText) {
+Window.prototype.handleMinesweeperMenuItem = function (itemText) {
     switch (itemText) {
         case 'Exit':
             this.desktop.closeWindow(this.id);
@@ -161,7 +161,7 @@ Window.prototype.handleMinesweeperMenuItem = function(itemText) {
 };
 
 // Launch real Webamp player
-Window.prototype.launchRealWinamp = function() {
+Window.prototype.launchRealWinamp = function () {
     if (typeof Webamp === 'undefined') {
         alert('Webamp library not loaded. Please check your internet connection.');
         return;
@@ -205,7 +205,7 @@ Window.prototype.launchRealWinamp = function() {
 };
 
 // Calculator - Windows XP style calculator
-Window.prototype.loadCalculator = function(contentDiv) {
+Window.prototype.loadCalculator = function (contentDiv) {
     const calcId = `calc-${this.id}`;
 
     contentDiv.innerHTML = `
@@ -265,7 +265,7 @@ Window.prototype.loadCalculator = function(contentDiv) {
 };
 
 // Initialize Calculator functionality
-Window.prototype.initCalculator = function(calcId) {
+Window.prototype.initCalculator = function (calcId) {
     const display = document.getElementById(`${calcId}-display`);
     const buttons = document.querySelectorAll('.calc-btn');
 
@@ -331,7 +331,7 @@ Window.prototype.initCalculator = function(calcId) {
 };
 
 // Handle Calculator actions
-Window.prototype.handleCalculatorAction = function(action, calcId) {
+Window.prototype.handleCalculatorAction = function (action, calcId) {
     const state = this.calculatorState;
 
     switch (action) {
@@ -424,7 +424,7 @@ Window.prototype.handleCalculatorAction = function(action, calcId) {
 };
 
 // Calculate result
-Window.prototype.calculate = function(calcId) {
+Window.prototype.calculate = function (calcId) {
     const state = this.calculatorState;
     const prev = parseFloat(state.previousValue);
     const current = parseFloat(state.currentValue);
@@ -453,7 +453,7 @@ Window.prototype.calculate = function(calcId) {
 
 
 // Notepad - Enhanced with dropdown menus like Windows XP
-Window.prototype.loadNotepad = function(contentDiv) {
+Window.prototype.loadNotepad = function (contentDiv) {
     // Create dropdown menu data
     const menuData = {
         File: [
@@ -555,7 +555,7 @@ Window.prototype.loadNotepad = function(contentDiv) {
 };
 
 // Show dropdown menu for Notepad
-Window.prototype.showNotepadDropdown = function(menuName, items, menuItem, container, textarea) {
+Window.prototype.showNotepadDropdown = function (menuName, items, menuItem, container, textarea) {
     // Close existing dropdown
     container.innerHTML = '';
 
@@ -602,7 +602,7 @@ Window.prototype.showNotepadDropdown = function(menuName, items, menuItem, conta
 };
 
 // Handle Notepad menu item clicks
-Window.prototype.handleNotepadMenuItem = function(itemText, textarea) {
+Window.prototype.handleNotepadMenuItem = function (itemText, textarea) {
     switch (itemText) {
         case 'Exit':
             this.desktop.closeWindow(this.id);
@@ -624,7 +624,7 @@ Window.prototype.handleNotepadMenuItem = function(itemText, textarea) {
     }
 };
 
-Window.prototype.handleNotepadMenu = function(menuItem, textarea) {
+Window.prototype.handleNotepadMenu = function (menuItem, textarea) {
     switch (menuItem) {
         case 'File':
             // Could show file menu options
@@ -643,7 +643,7 @@ Window.prototype.handleNotepadMenu = function(menuItem, textarea) {
 };
 
 // Internet Explorer - Original implementation from OnlineWinXP-master
-Window.prototype.loadInternetExplorer = function(contentDiv) {
+Window.prototype.loadInternetExplorer = function (contentDiv) {
     contentDiv.innerHTML = `
         <div class="ie-toolbar">
             <div class="ie-toolbar-section">
@@ -746,7 +746,7 @@ Window.prototype.loadInternetExplorer = function(contentDiv) {
     }
 };
 
-Window.prototype.searchInternet = function(query) {
+Window.prototype.searchInternet = function (query) {
     const contentArea = this.element.querySelector('.ie-content-area');
     contentArea.innerHTML = `
         <div class="ie-search-results">
@@ -776,7 +776,7 @@ Window.prototype.searchInternet = function(query) {
 };
 
 // Paint - Original implementation from OnlineWinXP-master (jspaint.app)
-Window.prototype.loadPaint = function(contentDiv) {
+Window.prototype.loadPaint = function (contentDiv) {
     contentDiv.innerHTML = `
         <div style="width: 100%; height: 100%; position: relative; background-color: rgb(192,192,192);">
             <iframe
@@ -790,7 +790,7 @@ Window.prototype.loadPaint = function(contentDiv) {
 };
 
 // Winamp - Real Webamp integration
-Window.prototype.loadWinamp = function(contentDiv) {
+Window.prototype.loadWinamp = function (contentDiv) {
     const winampId = `winamp-${this.id}`;
 
     // Create container for Webamp
@@ -816,7 +816,7 @@ Window.prototype.loadWinamp = function(contentDiv) {
 };
 
 // Initialize Winamp interactive features
-Window.prototype.initWinamp = function(winampId) {
+Window.prototype.initWinamp = function (winampId) {
     const container = document.getElementById(winampId);
     if (!container) return;
 
@@ -932,36 +932,11 @@ Window.prototype.initWinamp = function(winampId) {
     });
 };
 
-                <!-- Volume and Balance -->
-                <div style="display: flex; gap: 2px;">
-                    <div style="flex: 1;">
-                        <div style="font-size: 8px; margin-bottom: 1px; color: #000;">VOLUME</div>
-                        <div style="background: #c0c0c0; border: 1px inset #c0c0c0; height: 8px;">
-                            <div style="background: #0054e3; height: 100%; width: 70%;"></div>
-                        </div>
-                    </div>
-                    <div style="flex: 1;">
-                        <div style="font-size: 8px; margin-bottom: 1px; color: #000;">BALANCE</div>
-                        <div style="background: #c0c0c0; border: 1px inset #c0c0c0; height: 8px;">
-                            <div style="background: #0054e3; height: 100%; width: 50%;"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Equalizer Toggle -->
-                <div style="position: absolute; top: 2px; right: 2px; font-size: 7px; color: #666;">
-                    EQ
-                </div>
-            </div>
-        </div>
-    `;
-};
-
 // My Computer
-Window.prototype.loadMyComputer = function(contentDiv) {
+Window.prototype.loadMyComputer = function (contentDiv) {
     contentDiv.innerHTML = `
-        <div class="mycomputer-container">
-            <!-- Toolbar -->
+    <div class="mycomputer-container">
+            <!--Toolbar-->
             <div class="com__toolbar">
                 <div class="com__options">
                     <div class="com__menu-bar">
@@ -976,7 +951,7 @@ Window.prototype.loadMyComputer = function(contentDiv) {
                 <img class="com__windows-logo" src="./images/windowsIcons/windows.png" alt="windows" />
             </div>
 
-            <!-- Function bar -->
+            <!--Function bar-->
             <div class="com__function_bar">
                 <div class="com__function_bar__button--disable">
                     <img class="com__function_bar__icon" src="./images/windowsIcons/back.png" alt="" />
@@ -1006,7 +981,7 @@ Window.prototype.loadMyComputer = function(contentDiv) {
                 </div>
             </div>
 
-            <!-- Address bar -->
+            <!--Address bar-->
             <div class="com__address_bar">
                 <div class="com__address_bar__title">Address</div>
                 <div class="com__address_bar__content">
@@ -1020,129 +995,123 @@ Window.prototype.loadMyComputer = function(contentDiv) {
                 </div>
             </div>
 
-            <!-- Main content -->
-            <div class="com__content">
-                <div class="com__content__inner">
-                    <!-- Left panel -->
-                    <div class="com__content__left">
-                        <!-- System Tasks -->
-                        <div class="com__content__left__card">
-                            <div class="com__content__left__card__header">
-                                <div class="com__content__left__card__header__text">System Tasks</div>
-                                <img src="./images/windowsIcons/pullup.png" alt="" class="com__content__left__card__header__img" />
-                            </div>
-                            <div class="com__content__left__card__content">
-                                <div class="com__content__left__card__row">
-                                    <img class="com__content__left__card__img" src="./images/windowsIcons/view-info.png" alt="view" />
-                                    <div class="com__content__left__card__text link">View system information</div>
-                                </div>
-                                <div class="com__content__left__card__row">
-                                    <img class="com__content__left__card__img" src="./images/windowsIcons/add-remove.png" alt="remove" />
-                                    <div class="com__content__left__card__text link">Add or remove programs</div>
-                                </div>
-                                <div class="com__content__left__card__row">
-                                    <img class="com__content__left__card__img" src="./images/windowsIcons/control-panel.png" alt="control" />
-                                    <div class="com__content__left__card__text link">Change a setting</div>
-                                </div>
-                            </div>
+            <!--Main content-- >
+    <div class="com__content">
+        <div class="com__content__inner">
+            <!-- Left panel -->
+            <div class="com__content__left">
+                <!-- System Tasks -->
+                <div class="com__content__left__card">
+                    <div class="com__content__left__card__header">
+                        <div class="com__content__left__card__header__text">System Tasks</div>
+                        <img src="./images/windowsIcons/pullup.png" alt="" class="com__content__left__card__header__img" />
+                    </div>
+                    <div class="com__content__left__card__content">
+                        <div class="com__content__left__card__row">
+                            <img class="com__content__left__card__img" src="./images/windowsIcons/view-info.png" alt="view" />
+                            <div class="com__content__left__card__text link">View system information</div>
                         </div>
-
-                        <!-- Other Places -->
-                        <div class="com__content__left__card">
-                            <div class="com__content__left__card__header">
-                                <div class="com__content__left__card__header__text">Other Places</div>
-                                <img src="./images/windowsIcons/pullup.png" alt="" class="com__content__left__card__header__img" />
-                            </div>
-                            <div class="com__content__left__card__content">
-                                <div class="com__content__left__card__row">
-                                    <img class="com__content__left__card__img" src="./images/windowsIcons/network.png" alt="network" />
-                                    <div class="com__content__left__card__text link">My Network Places</div>
-                                </div>
-                                <div class="com__content__left__card__row">
-                                    <img class="com__content__left__card__img" src="./images/windowsIcons/documents.png" alt="document" />
-                                    <div class="com__content__left__card__text link">My Documents</div>
-                                </div>
-                                <div class="com__content__left__card__row">
-                                    <img class="com__content__left__card__img" src="./images/windowsIcons/folder.png" alt="folder" />
-                                    <div class="com__content__left__card__text link">Shared Documents</div>
-                                </div>
-                                <div class="com__content__left__card__row">
-                                    <img class="com__content__left__card__img" src="./images/windowsIcons/control-panel.png" alt="control" />
-                                    <div class="com__content__left__card__text link">Control Panel</div>
-                                </div>
-                            </div>
+                        <div class="com__content__left__card__row">
+                            <img class="com__content__left__card__img" src="./images/windowsIcons/add-remove.png" alt="remove" />
+                            <div class="com__content__left__card__text link">Add or remove programs</div>
                         </div>
-
-                        <!-- Details -->
-                        <div class="com__content__left__card">
-                            <div class="com__content__left__card__header">
-                                <div class="com__content__left__card__header__text">Details</div>
-                                <img src="./images/windowsIcons/pullup.png" alt="" class="com__content__left__card__header__img" />
-                            </div>
-                            <div class="com__content__left__card__content">
-                                <div class="com__content__left__card__row">
-                                    <div class="com__content__left__card__text">Welcome to Windows XP!</div>
-                                </div>
-                                <div class="com__content__left__card__row">
-                                    <div class="com__content__left__card__text">This is a web-based simulation</div>
-                                </div>
-                            </div>
+                        <div class="com__content__left__card__row">
+                            <img class="com__content__left__card__img" src="./images/windowsIcons/control-panel.png" alt="control" />
+                            <div class="com__content__left__card__text link">Change a setting</div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Right panel -->
-                    <div class="com__content__right">
-                        <!-- Files Stored on This Computer -->
-                        <div class="com__content__right__card">
-                            <div class="com__content__right__card__header">Files Stored on This Computer</div>
-                            <div class="com__content__right__card__content">
-                                <div class="com__content__right__card__item">
-                                    <img src="./images/windowsIcons/folder.png" alt="folder" class="com__content__right__card__img" />
-                                    <div class="com__content__right__card__text">Shared Documents</div>
-                                </div>
-                                <div class="com__content__right__card__item">
-                                    <img src="./images/windowsIcons/folder.png" alt="folder" class="com__content__right__card__img" />
-                                    <div class="com__content__right__card__text">User's Documents</div>
-                                </div>
-                            </div>
+                <!-- Other Places -->
+                <div class="com__content__left__card">
+                    <div class="com__content__left__card__header">
+                        <div class="com__content__left__card__header__text">Other Places</div>
+                        <img src="./images/windowsIcons/pullup.png" alt="" class="com__content__left__card__header__img" />
+                    </div>
+                    <div class="com__content__left__card__content">
+                        <div class="com__content__left__card__row">
+                            <img class="com__content__left__card__img" src="./images/windowsIcons/network.png" alt="network" />
+                            <div class="com__content__left__card__text link">My Network Places</div>
                         </div>
-
-                        <!-- Hard Disk Drives -->
-                        <div class="com__content__right__card">
-                            <div class="com__content__right__card__header">Hard Disk Drives</div>
-                            <div class="com__content__right__card__content">
-                                <div class="com__content__right__card__item">
-                                    <img src="./images/windowsIcons/hard-drive.png" alt="disk" class="com__content__right__card__img" />
-                                    <div class="com__content__right__card__text">Local Disk (C:)</div>
-                                </div>
-                            </div>
+                        <div class="com__content__left__card__row">
+                            <img class="com__content__left__card__img" src="./images/windowsIcons/documents.png" alt="document" />
+                            <div class="com__content__left__card__text link">My Documents</div>
                         </div>
+                        <div class="com__content__left__card__row">
+                            <img class="com__content__left__card__img" src="./images/windowsIcons/folder.png" alt="folder" />
+                            <div class="com__content__left__card__text link">Shared Documents</div>
+                        </div>
+                        <div class="com__content__left__card__row">
+                            <img class="com__content__left__card__img" src="./images/windowsIcons/control-panel.png" alt="control" />
+                            <div class="com__content__left__card__text link">Control Panel</div>
+                        </div>
+                    </div>
+                </div>
 
-                        <!-- Devices with Removable Storage -->
-                        <div class="com__content__right__card">
-                            <div class="com__content__right__card__header">Devices with Removable Storage</div>
-                            <div class="com__content__right__card__content">
-                                <div class="com__content__right__card__item">
-                                    <img src="./images/windowsIcons/cd-drive.png" alt="cd" class="com__content__right__card__img" />
-                                    <div class="com__content__right__card__text">CD Drive (D:)</div>
-                                </div>
-                            </div>
+                <!-- Details -->
+                <div class="com__content__left__card">
+                    <div class="com__content__left__card__header">
+                        <div class="com__content__left__card__header__text">Details</div>
+                        <img src="./images/windowsIcons/pullup.png" alt="" class="com__content__left__card__header__img" />
+                    </div>
+                    <div class="com__content__left__card__content">
+                        <div class="com__content__left__card__row">
+                            <div class="com__content__left__card__text">Welcome to Windows XP!</div>
+                        </div>
+                        <div class="com__content__left__card__row">
+                            <div class="com__content__left__card__text">This is a web-based simulation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right panel -->
+            <div class="com__content__right">
+                <!-- Files Stored on This Computer -->
+                <div class="com__content__right__card">
+                    <div class="com__content__right__card__header">Files Stored on This Computer</div>
+                    <div class="com__content__right__card__content">
+                        <div class="com__content__right__card__item">
+                            <img src="./images/windowsIcons/folder.png" alt="folder" class="com__content__right__card__img" />
+                            <div class="com__content__right__card__text">Shared Documents</div>
+                        </div>
+                        <div class="com__content__right__card__item">
+                            <img src="./images/windowsIcons/folder.png" alt="folder" class="com__content__right__card__img" />
+                            <div class="com__content__right__card__text">User's Documents</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hard Disk Drives -->
+                <div class="com__content__right__card">
+                    <div class="com__content__right__card__header">Hard Disk Drives</div>
+                    <div class="com__content__right__card__content">
+                        <div class="com__content__right__card__item">
+                            <img src="./images/windowsIcons/hard-drive.png" alt="disk" class="com__content__right__card__img" />
+                            <div class="com__content__right__card__text">Local Disk (C:)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Devices with Removable Storage -->
+                <div class="com__content__right__card">
+                    <div class="com__content__right__card__header">Devices with Removable Storage</div>
+                    <div class="com__content__right__card__content">
+                        <div class="com__content__right__card__item">
+                            <img src="./images/windowsIcons/cd-drive.png" alt="cd" class="com__content__right__card__img" />
+                            <div class="com__content__right__card__text">CD Drive (D:)</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+        </div >
     `;
 
     // Initialize menu functionality
     this.initMyComputerMenus(contentDiv);
-};
-                    <img src="./images/windowsIcons/hard-drive.png" alt="">
-                    <span>Local Disk (C:)</span>
-                </div>
-            </div>
-        </div>
-    `;
+
 
     // Add click handlers for folders
     contentDiv.querySelectorAll('.folder-item').forEach(item => {
@@ -1153,7 +1122,7 @@ Window.prototype.loadMyComputer = function(contentDiv) {
 };
 
 // Initialize My Computer menu functionality
-Window.prototype.initMyComputerMenus = function(contentDiv) {
+Window.prototype.initMyComputerMenus = function (contentDiv) {
     const menuBar = contentDiv.querySelector('.com__menu-bar');
     let currentDropdown = null;
 
@@ -1187,19 +1156,19 @@ Window.prototype.initMyComputerMenus = function(contentDiv) {
                 defaultPosition: { x: 200, y: 200 }
             }, (contentDiv) => {
                 contentDiv.innerHTML = `
-                    <div style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+    < div style = "padding: 20px; text-align: center; font-family: Arial, sans-serif;" >
                         <div style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">${link.textContent}</div>
                         <div style="font-size: 12px; color: #666;">This feature is not implemented in this demo.</div>
                         <button onclick="this.closest('.window').querySelector('.close').click()" style="margin-top: 15px; padding: 5px 15px;">OK</button>
-                    </div>
-                `;
+                    </div >
+    `;
             });
         });
     });
 };
 
 // Show dropdown menu for My Computer
-Window.prototype.showMyComputerDropdown = function(menuName, menuItem, contentDiv) {
+Window.prototype.showMyComputerDropdown = function (menuName, menuItem, contentDiv) {
     // Create or get dropdown container
     let container = contentDiv.querySelector('.com__dropdown-container');
     if (!container) {
@@ -1292,10 +1261,10 @@ Window.prototype.showMyComputerDropdown = function(menuName, menuItem, contentDi
             menuItemEl.className = 'com__dropdown-item' + (item.disabled ? ' disabled' : '');
 
             menuItemEl.innerHTML = `
-                <span class="com__dropdown-text">${item.text}</span>
-                ${item.hotkey ? `<span class="com__dropdown-hotkey">${item.hotkey}</span>` : ''}
+    < span class="com__dropdown-text" > ${item.text}</span >
+        ${item.hotkey ? `<span class="com__dropdown-hotkey">${item.hotkey}</span>` : ''}
                 ${item.submenu ? '<span class="com__dropdown-arrow">▶</span>' : ''}
-            `;
+`;
 
             if (!item.disabled) {
                 menuItemEl.addEventListener('click', () => {
@@ -1313,7 +1282,7 @@ Window.prototype.showMyComputerDropdown = function(menuName, menuItem, contentDi
 };
 
 // Handle My Computer menu item clicks
-Window.prototype.handleMyComputerMenuItem = function(itemText) {
+Window.prototype.handleMyComputerMenuItem = function (itemText) {
     switch (itemText) {
         case 'Close':
             this.desktop.closeWindow(this.id);

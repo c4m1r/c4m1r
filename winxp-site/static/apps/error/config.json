@@ -1,0 +1,13 @@
+{
+    "id": "error",
+    "name": "Error",
+    "icon": "images/icons/error.webp",
+    "type": "iframe",
+    "url": "/apps/error/index.html",
+    "defaultSize": {
+        "width": 400,
+        "height": 150
+    },
+    "resizable": false,
+    "description": "Test error window"
+}

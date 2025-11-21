@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #terminal-container {
+            height: 100%;
+            padding: 10px;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        .entry {
+            margin-bottom: 5px;
+        }
+
+        .prompt {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .input-line {
+            display: flex;
+            align-items: center;
+        }
+
+        #command-input {
+            background: transparent;
+            border: none;
+            color: white;
+            font-family: inherit;
+            font-size: inherit;
+            flex-grow: 1;
+            outline: none;
+        }
+
+        .output {
+            white-space: pre-wrap;
+            margin-bottom: 10px;
+            color: #cccccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="terminal-container" onclick="document.getElementById('command-input').focus()">
+        <div id="history"></div>
+        <div class="input-line">
+            <span class="prompt">C:\></span>
+            <input type="text" id="command-input" autocomplete="off" spellcheck="false">
+        </div>
+    </div>
+
+    <script>
+        let commandHistory = [];
+        let historyIndex = -1;
+        let terminalData = {};
+
+        // Load terminal data
+        fetch('../../data/terminal-data.json')
+            .then(response => response.json())
+            .then(data => {
+                terminalData = data;
+            })
+            .catch(err => console.error('Failed to load terminal data', err));
+
+        const input = document.getElementById('command-input');
+        const historyDiv = document.getElementById('history');
+        const container = document.getElementById('terminal-container');
+
+        const availableCommands = ['help', 'clear', 'dir', 'ipconfig', 'systeminfo', 'Get-Disk', 'sudo', 'rm'];
+
+        input.addEventListener('keydown', async (e) => {
+            if (e.key === 'Enter') {
+                const command = input.value.trim();
+                if (command) {
+                    executeCommand(command);
+                    commandHistory.push(command);
+                    historyIndex = commandHistory.length;
+                    input.value = '';
+                }
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    input.value = commandHistory[historyIndex];
+                }
+            } else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (historyIndex < commandHistory.length - 1) {
+                    historyIndex++;
+                    input.value = commandHistory[historyIndex];
+                } else {
+                    historyIndex = commandHistory.length;
+                    input.value = '';
+                }
+            } else if (e.key === 'Tab') {
+                e.preventDefault();
+                autoComplete();
+            }
+        });
+
+        function executeCommand(command) {
+            addToHistory(command, true);
+
+            let output = '';
+            const cmd = command.split(' ')[0];
+
+            switch (cmd) {
+                case 'help':
+                    output = 'Available commands:\n' + availableCommands.join('\t');
+                    break;
+                case 'clear':
+                    historyDiv.innerHTML = '';
+                    return;
+                case 'systeminfo':
+                    output = terminalData.systeminfo ? terminalData.systeminfo.result : 'Loading...';
+                    break;
+                case 'Get-Disk':
+                    output = terminalData.diskinfo ? terminalData.diskinfo.result : 'Loading...';
+                    break;
+                case 'dir':
+                    output = terminalData.dir ? terminalData.dir.result : 'Loading...';
+                    break;
+                case 'ipconfig':
+                    output = terminalData.ipconfig ? terminalData.ipconfig.result : 'Loading...';
+                    break;
+                case 'sudo':
+                case 'rm':
+                    if (command === 'sudo rm -rf /') {
+                        output = terminalData.meme ? terminalData.meme.result : 'Nice try.';
+                        setTimeout(() => {
+                            // Simulate crash/restart if we had that capability
+                            window.parent.location.reload();
+                        }, 2000);
+                    } else {
+                        output = terminalData.hint ? terminalData.hint.result : 'Permission denied.';
+                    }
+                    break;
+                default:
+                    output = `'${command}' is not recognized as an internal or external command, operable program or batch file.`;
+            }
+
+            if (output) {
+                addToHistory(output, false);
+            }
+
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function addToHistory(text, isCommand) {
+            const div = document.createElement('div');
+            if (isCommand) {
+                div.className = 'entry';
+                div.innerHTML = `<span class="prompt">C:\\></span><span>${text}</span>`;
+            } else {
+                div.className = 'output';
+                div.innerHTML = text.replace(/\n/g, '<br>').replace(/\t/g, '&emsp;');
+            }
+            historyDiv.appendChild(div);
+        }
+
+        function autoComplete() {
+            const current = input.value.trim();
+            if (!current) return;
+
+            const matches = availableCommands.filter(cmd => cmd.startsWith(current));
+            if (matches.length === 1) {
+                input.value = matches[0];
+            } else if (matches.length > 1) {
+                addToHistory(current, true);
+                addToHistory(matches.join('  '), false);
+                input.value = current; // Keep input
+            }
+        }
+
+        // Auto focus
+        window.onload = () => input.focus();
+    </script>
+</body>
+
+</html>

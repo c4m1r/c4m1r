@@ -22,7 +22,7 @@ body {
     left: 0;
     width: 100%;
     height: calc(100vh - 40px);
-    background: url('./images/wallpapers/bg.jpg') no-repeat center center;
+    background: url('../images/wallpapers/bg.jpg') no-repeat center center;
     background-size: cover;
     cursor: default;
 }
@@ -127,25 +127,23 @@ body {
     left: 0;
     width: 100%;
     height: 30px;
-    background: linear-gradient(
-        to bottom,
-        #1f2f86 0,
-        #3165c4 3%,
-        #3682e5 6%,
-        #4490e6 10%,
-        #3883e5 12%,
-        #2b71e0 15%,
-        #2663da 18%,
-        #235bd6 20%,
-        #2258d5 23%,
-        #2157d6 38%,
-        #245ddb 54%,
-        #2562df 86%,
-        #245fdc 89%,
-        #2158d4 92%,
-        #1d4ec0 95%,
-        #1941a5 98%
-    );
+    background: linear-gradient(to bottom,
+            #1f2f86 0,
+            #3165c4 3%,
+            #3682e5 6%,
+            #4490e6 10%,
+            #3883e5 12%,
+            #2b71e0 15%,
+            #2663da 18%,
+            #235bd6 20%,
+            #2258d5 23%,
+            #2157d6 38%,
+            #245ddb 54%,
+            #2562df 86%,
+            #245fdc 89%,
+            #2158d4 92%,
+            #1d4ec0 95%,
+            #1941a5 98%);
     display: flex;
     align-items: center;
     z-index: 1000;
@@ -268,21 +266,19 @@ body {
 .system-tray {
     background-color: #0b77e9;
     flex-shrink: 0;
-    background: linear-gradient(
-        to bottom,
-        #0c59b9 1%,
-        #139ee9 6%,
-        #18b5f2 10%,
-        #139beb 14%,
-        #1290e8 19%,
-        #0d8dea 63%,
-        #0d9ff1 81%,
-        #0f9eed 88%,
-        #119be9 91%,
-        #1392e2 94%,
-        #137ed7 97%,
-        #095bc9 100%
-    );
+    background: linear-gradient(to bottom,
+            #0c59b9 1%,
+            #139ee9 6%,
+            #18b5f2 10%,
+            #139beb 14%,
+            #1290e8 19%,
+            #0d8dea 63%,
+            #0d9ff1 81%,
+            #0f9eed 88%,
+            #119be9 91%,
+            #1392e2 94%,
+            #137ed7 97%,
+            #095bc9 100%);
     border-left: 1px solid #1042af;
     box-shadow: inset 1px 0 1px #18bbff;
     padding: 0 10px;
@@ -342,22 +338,20 @@ body {
     width: 100%;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    background: linear-gradient(
-        to bottom,
-        #1868ce 0%,
-        #0e60cb 12%,
-        #0e60cb 20%,
-        #1164cf 32%,
-        #1667cf 33%,
-        #1b6cd3 47%,
-        #1e70d9 54%,
-        #2476dc 60%,
-        #297ae0 65%,
-        #3482e3 77%,
-        #3786e5 79%,
-        #428ee9 90%,
-        #4791eb 100%
-    );
+    background: linear-gradient(to bottom,
+            #1868ce 0%,
+            #0e60cb 12%,
+            #0e60cb 20%,
+            #1164cf 32%,
+            #1667cf 33%,
+            #1b6cd3 47%,
+            #1e70d9 54%,
+            #2476dc 60%,
+            #297ae0 65%,
+            #3482e3 77%,
+            #3786e5 79%,
+            #428ee9 90%,
+            #4791eb 100%);
     overflow: hidden;
     flex-shrink: 0;
 }
@@ -370,16 +364,14 @@ body {
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(
-        to right,
-        transparent 0,
-        rgba(255, 255, 255, 0.3) 1%,
-        rgba(255, 255, 255, 0.5) 2%,
-        rgba(255, 255, 255, 0.5) 95%,
-        rgba(255, 255, 255, 0.3) 98%,
-        rgba(255, 255, 255, 0.2) 99%,
-        transparent 100%
-    );
+    background: linear-gradient(to right,
+            transparent 0,
+            rgba(255, 255, 255, 0.3) 1%,
+            rgba(255, 255, 255, 0.5) 2%,
+            rgba(255, 255, 255, 0.5) 95%,
+            rgba(255, 255, 255, 0.3) 98%,
+            rgba(255, 255, 255, 0.2) 99%,
+            transparent 100%);
     box-shadow: inset 0 -1px 1px #0e60cb;
 }
 
@@ -428,12 +420,10 @@ body {
     top: 0;
     display: block;
     height: 2px;
-    background: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0) 0%,
-        #da884a 50%,
-        rgba(0, 0, 0, 0) 100%
-    );
+    background: linear-gradient(to right,
+            rgba(0, 0, 0, 0) 0%,
+            #da884a 50%,
+            rgba(0, 0, 0, 0) 100%);
     border: 0;
 }
 
@@ -459,12 +449,10 @@ body {
 
 .start-menu-separator {
     height: 7.5px;
-    background: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.1) 50%,
-        rgba(0, 0, 0, 0) 100%
-    );
+    background: linear-gradient(to right,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.1) 50%,
+            rgba(0, 0, 0, 0) 100%);
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
     background-clip: content-box;
@@ -472,12 +460,10 @@ body {
 }
 
 .start-menu-right .start-menu-separator {
-    background: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(135, 179, 226, 0.71) 50%,
-        rgba(0, 0, 0, 0) 100%
-    );
+    background: linear-gradient(to right,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(135, 179, 226, 0.71) 50%,
+            rgba(0, 0, 0, 0) 100%);
     background-clip: content-box;
 }
 
@@ -544,24 +530,22 @@ body {
     color: #fff;
     height: 36px;
     width: 100%;
-    background: linear-gradient(
-        to bottom,
-        #4282d6 0%,
-        #3b85e0 3%,
-        #418ae3 5%,
-        #418ae3 17%,
-        #3c87e2 21%,
-        #3786e4 26%,
-        #3482e3 29%,
-        #2e7ee1 39%,
-        #2374df 49%,
-        #2072db 57%,
-        #196edb 62%,
-        #176bd8 72%,
-        #1468d5 75%,
-        #1165d2 83%,
-        #0f61cb 88%
-    );
+    background: linear-gradient(to bottom,
+            #4282d6 0%,
+            #3b85e0 3%,
+            #418ae3 5%,
+            #418ae3 17%,
+            #3c87e2 21%,
+            #3786e4 26%,
+            #3482e3 29%,
+            #2e7ee1 39%,
+            #2374df 49%,
+            #2072db 57%,
+            #196edb 62%,
+            #176bd8 72%,
+            #1468d5 75%,
+            #1165d2 83%,
+            #0f61cb 88%);
 }
 
 .start-menu-user {
@@ -604,7 +588,7 @@ body {
     background-color: rgba(60, 80, 210, 0.5);
 }
 
-.start-menu-bottom .start-menu-item:hover:active > * {
+.start-menu-bottom .start-menu-item:hover:active>* {
     transform: translate(1px, 1px);
 }
 
@@ -649,6 +633,7 @@ body {
         opacity: 0;
         transform: scale(0.9) translateY(-10px);
     }
+
     100% {
         opacity: 1;
         transform: scale(1) translateY(0);
@@ -660,6 +645,7 @@ body {
         opacity: 0;
         transform: translateY(5px) scale(0.9);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -693,10 +679,12 @@ body {
         opacity: 1;
         transform: scale(1) translateY(0);
     }
+
     50% {
         opacity: 0.5;
         transform: scale(0.8) translateY(-20px);
     }
+
     100% {
         opacity: 0;
         transform: scale(0.3) translateY(-50px);
@@ -708,6 +696,7 @@ body {
         opacity: 0;
         transform: translateY(10px) scale(0.95);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -739,8 +728,8 @@ body {
     right: 0;
     bottom: 0;
     background: linear-gradient(to bottom,
-        #7697e7 0%, #7e9ee3 3%, #94afe8 6%, #97b4e9 8%, #82a5e4 14%, #7c9fe2 17%, #7996de 25%,
-        #7b99e1 56%, #82a9e9 81%, #80a5e7 89%, #7b96e1 94%, #7a93df 97%, #abbae3 100%);
+            #7697e7 0%, #7e9ee3 3%, #94afe8 6%, #97b4e9 8%, #82a5e4 14%, #7c9fe2 17%, #7996de 25%,
+            #7b99e1 56%, #82a9e9 81%, #80a5e7 89%, #7b96e1 94%, #7a93df 97%, #abbae3 100%);
     pointer-events: none;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -751,8 +740,8 @@ body {
 
 .window.active .window-header::before {
     background: linear-gradient(to bottom,
-        #0058ee 0%, #3593ff 4%, #288eff 6%, #127dff 8%, #036ffc 10%, #0262ee 14%, #0057e5 20%,
-        #0054e3 24%, #0055eb 56%, #005bf5 66%, #026afe 76%, #0062ef 86%, #0052d6 92%, #0040ab 94%, #003092 100%);
+            #0058ee 0%, #3593ff 4%, #288eff 6%, #127dff 8%, #036ffc 10%, #0262ee 14%, #0057e5 20%,
+            #0054e3 24%, #0055eb 56%, #005bf5 66%, #026afe 76%, #0062ef 86%, #0052d6 92%, #0040ab 94%, #003092 100%);
 }
 
 /* Header left highlight */
@@ -764,20 +753,20 @@ body {
     width: 60px;
     height: 100%;
     background: linear-gradient(to right,
-        rgba(255, 255, 255, 0.6) 0%,
-        rgba(255, 255, 255, 0.3) 20%,
-        rgba(22, 56, 230, 0.2) 40%,
-        transparent 100%);
+            rgba(255, 255, 255, 0.6) 0%,
+            rgba(255, 255, 255, 0.3) 20%,
+            rgba(22, 56, 230, 0.2) 40%,
+            transparent 100%);
     pointer-events: none;
     border-top-left-radius: 8px;
 }
 
 .window.active .window-header::after {
     background: linear-gradient(to right,
-        rgba(255, 255, 255, 0.8) 0%,
-        rgba(255, 255, 255, 0.5) 20%,
-        rgba(22, 56, 230, 0.4) 40%,
-        transparent 100%);
+            rgba(255, 255, 255, 0.8) 0%,
+            rgba(255, 255, 255, 0.5) 20%,
+            rgba(22, 56, 230, 0.4) 40%,
+            transparent 100%);
 }
 
 .window-icon {
@@ -838,14 +827,12 @@ body {
 
 .window-button.minimize {
     box-shadow: inset 0 -1px 2px 1px #4646ff;
-    background-image: radial-gradient(
-        circle at 90% 90%,
-        #0054e9 0%,
-        #2263d5 55%,
-        #4479e4 70%,
-        #a3bbec 90%,
-        white 100%
-    );
+    background-image: radial-gradient(circle at 90% 90%,
+            #0054e9 0%,
+            #2263d5 55%,
+            #4479e4 70%,
+            #a3bbec 90%,
+            white 100%);
 }
 
 .window-button.minimize::before {
@@ -860,14 +847,12 @@ body {
 
 .window-button.maximize {
     box-shadow: inset 0 -1px 2px 1px #4646ff;
-    background-image: radial-gradient(
-        circle at 90% 90%,
-        #0054e9 0%,
-        #2263d5 55%,
-        #4479e4 70%,
-        #a3bbec 90%,
-        white 100%
-    );
+    background-image: radial-gradient(circle at 90% 90%,
+            #0054e9 0%,
+            #2263d5 55%,
+            #4479e4 70%,
+            #a3bbec 90%,
+            white 100%);
 }
 
 .window-button.maximize::before {
@@ -903,14 +888,12 @@ body {
 
 .window-button.close {
     box-shadow: inset 0 -1px 2px 1px #da4600;
-    background-image: radial-gradient(
-        circle at 90% 90%,
-        #cc4600 0%,
-        #dc6527 55%,
-        #cd7546 70%,
-        #ffccb2 90%,
-        white 100%
-    );
+    background-image: radial-gradient(circle at 90% 90%,
+            #cc4600 0%,
+            #dc6527 55%,
+            #cd7546 70%,
+            #ffccb2 90%,
+            white 100%);
 }
 
 .window-button.close::before {
@@ -998,6 +981,7 @@ body {
         opacity: 0;
         transform: translateY(-5px) scaleY(0.9);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0) scaleY(1);
@@ -1223,11 +1207,13 @@ body {
 .com__function_bar__icon {
     height: 30px;
     width: 30px;
+
     &--normalize {
         height: 22px;
         width: 22px;
         margin: 0 4px 0 1px;
     }
+
     &--margin12 {
         height: 22px;
         width: 22px;
@@ -2655,7 +2641,8 @@ body {
     color: #000000;
 }
 
-.status-left, .status-right {
+.status-left,
+.status-right {
     display: flex;
     align-items: center;
 }
@@ -2683,3 +2670,276 @@ body {
         grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
     }
 }
+/* BIOS Screen */
+.bios-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bios-content {
+    width: 80%;
+    max-width: 800px;
+}
+
+.bios-header {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.bios-menu-box {
+    border: 2px solid #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #000;
+}
+
+.bios-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bios-menu li {
+    padding: 2px 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.bios-menu li.selected {
+    background-color: #fff;
+    color: #000;
+}
+
+.bios-footer {
+    font-size: 12px;
+    margin-bottom: 20px;
+    color: #aaa;
+}
+
+.bios-timer {
+    font-size: 14px;
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 9998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.loading-logo {
+    margin-bottom: 50px;
+}
+
+.loading-bar-container {
+    width: 200px;
+    height: 15px;
+    border: 2px solid #b2b2b2;
+    border-radius: 3px;
+    margin: 0 auto;
+    padding: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-bar {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.loading-bar-progress {
+    width: 15px;
+    height: 100%;
+    background: linear-gradient(to bottom, #283683 0%, #6c86d6 20%, #283683 100%);
+    position: absolute;
+    top: 0;
+    border-radius: 2px;
+    animation: loading-move 2s linear infinite;
+}
+
+.loading-bar-progress:nth-child(1) { animation-delay: 0s; }
+.loading-bar-progress:nth-child(2) { animation-delay: 0.2s; }
+.loading-bar-progress:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes loading-move {
+    0% { left: -20px; }
+    100% { left: 100%; }
+}
+
+/* Login Screen */
+.login-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #003399;
+    z-index: 9997;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #5a7edc 0%, #5a7edc 50%, #6d91e8 50%, #6d91e8 100%);
+    padding: 2px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    width: 600px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.login-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(to top, rgba(0,0,0,0.2) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.login-left {
+    flex: 1;
+    padding: 40px;
+    text-align: right;
+    background-color: #5a7edc;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.login-logo {
+    margin-bottom: 20px;
+    max-width: 150px;
+}
+
+.login-text {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.login-divider {
+    width: 2px;
+    height: 80%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.5) 50%, transparent 100%);
+}
+
+.login-right {
+    flex: 1;
+    padding: 40px;
+    background-color: #6d91e8;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.login-user {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+.login-user:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.login-user img {
+    width: 48px;
+    height: 48px;
+    border-radius: 5px;
+    margin-right: 15px;
+    border: 2px solid #fff;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+}
+
+.login-user span {
+    color: #fff;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.login-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.login-shutdown {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+.login-shutdown:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.login-shutdown img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.login-shutdown span {
+    color: #fff;
+    font-size: 14px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.hidden {
+    display: none !important;
+}
+

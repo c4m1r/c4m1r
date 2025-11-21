@@ -1,0 +1,13 @@
+{
+    "id": "browser",
+    "name": "Internet Explorer",
+    "icon": "images/icons/ie.png",
+    "type": "iframe",
+    "url": "/apps/browser/index.html",
+    "defaultSize": {
+        "width": 1024,
+        "height": 768
+    },
+    "resizable": true,
+    "description": "Browse the internet"
+}

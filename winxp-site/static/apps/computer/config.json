@@ -1,0 +1,13 @@
+{
+    "id": "computer",
+    "name": "My Computer",
+    "icon": "images/icons/my_computer.ico",
+    "type": "iframe",
+    "url": "/apps/computer/index.html",
+    "defaultSize": {
+        "width": 800,
+        "height": 600
+    },
+    "resizable": true,
+    "description": "Browse files and folders on your computer"
+}

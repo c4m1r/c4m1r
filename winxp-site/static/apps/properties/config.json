@@ -1,0 +1,13 @@
+{
+    "id": "properties",
+    "name": "Display Properties",
+    "icon": "images/icons/settings.webp",
+    "type": "iframe",
+    "url": "/apps/properties/index.html",
+    "defaultSize": {
+        "width": 400,
+        "height": 500
+    },
+    "resizable": false,
+    "description": "Change display settings"
+}

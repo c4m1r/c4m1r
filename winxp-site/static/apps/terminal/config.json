@@ -1,0 +1,13 @@
+{
+    "id": "terminal",
+    "name": "Command Prompt",
+    "icon": "images/icons/cmd.webp",
+    "type": "iframe",
+    "url": "/apps/terminal/index.html",
+    "defaultSize": {
+        "width": 600,
+        "height": 400
+    },
+    "resizable": true,
+    "description": "Command line interface"
+}

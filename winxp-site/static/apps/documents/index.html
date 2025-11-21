@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Documents</title>
+    <link rel="stylesheet" href="../../css/os.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            font-family: 'Tahoma', sans-serif;
+            font-size: 11px;
+            overflow-y: auto;
+        }
+
+        .documents-container {
+            padding: 10px;
+        }
+
+        .file-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .file-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .file-item:hover {
+            background-color: #e0e0e0;
+        }
+
+        .file-item.selected {
+            background-color: #0055ea;
+            color: white;
+        }
+
+        .file-icon {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+
+        .file-info {
+            flex: 1;
+        }
+
+        .file-name {
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .file-meta {
+            font-size: 10px;
+            color: #666;
+        }
+
+        .file-item.selected .file-meta {
+            color: #ccc;
+        }
+
+        .document-view {
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .document-view h1 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #0055ea;
+        }
+
+        .document-view h2 {
+            font-size: 14px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .document-view p {
+            margin-bottom: 10px;
+        }
+
+        .back-btn {
+            background: #f0f0f0;
+            border: 1px solid #a0a0a0;
+            padding: 5px 15px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .back-btn:hover {
+            background: #e0e0e0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="documents-container" id="main-view">
+        <div class="file-list" id="file-list">
+            <!-- Files will be injected here -->
+        </div>
+    </div>
+
+    fileList.innerHTML = documents.map(doc => `
+    <div class="file-item" onclick="selectDocument('${doc.id}')" ondblclick="openDocument('${doc.id}')">
+        <img src="${doc.icon}" alt="${doc.name}" class="file-icon">
+        <div class="file-info">
+            <div class="file-name">${doc.name}</div>
+            <div class="file-meta">${doc.type} • ${doc.size}</div>
+        </div>
+    </div>
+    `).join('');
+    }
+
+    function selectDocument(id) {
+    // Remove previous selection
+    document.querySelectorAll('.file-item').forEach(item => {
+    item.classList.remove('selected');
+    });
+    // Initial render
+    renderFileList();
+    </script>
+</body>
+
+</html>

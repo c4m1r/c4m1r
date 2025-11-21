@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="../../css/os.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Tahoma', sans-serif;
+            font-size: 11px;
+            overflow: hidden;
+        }
+
+        .toolbar {
+            background: #f0f0f0;
+            border-bottom: 1px solid #a0a0a0;
+            padding: 2px 5px;
+            display: flex;
+            gap: 2px;
+            align-items: center;
+            height: 50px;
+        }
+
+        .toolbar-btn {
+            border: 1px solid transparent;
+            background: transparent;
+            border-radius: 3px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2px 5px;
+            min-width: 40px;
+        }
+
+        .toolbar-btn:hover:not(:disabled) {
+            border-color: #a0a0a0;
+            background-color: #e0e0e0;
+        }
+
+        .toolbar-btn:disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
+
+        .toolbar-btn img {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 2px;
+        }
+
+        .toolbar-btn span {
+            font-size: 10px;
+        }
+
+        .separator {
+            width: 1px;
+            height: 40px;
+            background-color: #a0a0a0;
+            margin: 0 2px;
+        }
+
+        .header-fields {
+            background: white;
+            padding: 10px;
+            border-bottom: 1px solid #a0a0a0;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .field-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .field-label {
+            width: 60px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #666;
+        }
+
+        .field-label img {
+            width: 16px;
+            height: 16px;
+        }
+
+        .field-input {
+            flex: 1;
+            border: 1px solid #ccc;
+            padding: 3px;
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        .field-input:focus {
+            border-color: #0055ea;
+            outline: none;
+        }
+
+        .message-area {
+            flex: 1;
+            padding: 10px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ccc;
+            padding: 5px;
+            font-family: inherit;
+            font-size: inherit;
+            resize: none;
+            box-sizing: border-box;
+        }
+
+        textarea:focus {
+            border-color: #0055ea;
+            outline: none;
+        }
+
+        .status-bar {
+            padding: 5px 10px;
+            border-top: 1px solid #a0a0a0;
+            background: #f0f0f0;
+            font-size: 11px;
+            color: #666;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="toolbar">
+        <button class="toolbar-btn" id="btn-send" onclick="sendEmail()" disabled>
+            <img src="../../images/icons/contact/send-icon.webp" alt="Send">
+            <span>Send</span>
+        </button>
+        <div class="separator"></div>
+        <button class="toolbar-btn" onclick="document.execCommand('cut')">
+            <img src="../../images/icons/contact/cut-icon.webp" alt="Cut">
+            <span>Cut</span>
+        </button>
+        <button class="toolbar-btn" onclick="document.execCommand('copy')">
+            <img src="../../images/icons/contact/copy-icon.webp" alt="Copy">
+            <span>Copy</span>
+        </button>
+        <button class="toolbar-btn" onclick="document.execCommand('paste')">
+            <img src="../../images/icons/contact/paste-icon.webp" alt="Paste">
+            <span>Paste</span>
+        </button>
+        <button class="toolbar-btn" onclick="document.execCommand('undo')">
+            <img src="../../images/icons/contact/undo-icon.webp" alt="Undo">
+            <span>Undo</span>
+        </button>
+    </div>
+
+    <div class="header-fields">
+        <div class="field-row">
+            <div class="field-label">
+                <img src="../../images/icons/contact/mailto-icon.webp" alt="To">
+                <span>To:</span>
+            </div>
+            <input type="text" class="field-input" value="jaguinpaul@gmail.com" readonly>
+        </div>
+        <div class="field-row">
+            <div class="field-label">
+                <img src="../../images/icons/contact/mailto-icon.webp" alt="From">
+                <span>From:</span>
+            </div>
+            <input type="email" class="field-input" id="input-email" placeholder="your.email@example.com"
+                oninput="validateForm()">
+        </div>
+        <div class="field-row">
+            <div class="field-label">
+                <span>Subject:</span>
+            </div>
+            <input type="text" class="field-input" id="input-subject" oninput="validateForm()">
+        </div>
+    </div>
+
+    <div class="message-area">
+        <textarea id="input-message" placeholder="Type your message here..." oninput="validateForm()"></textarea>
+    </div>
+
+    <div class="status-bar" id="status-bar">
+        Ready
+    </div>
+
+    <script>
+        const btnSend = document.getElementById('btn-send');
+        const inputEmail = document.getElementById('input-email');
+        const inputSubject = document.getElementById('input-subject');
+        const inputMessage = document.getElementById('input-message');
+        const statusBar = document.getElementById('status-bar');
+
+        function validateForm() {
+            const email = inputEmail.value.trim();
+            const subject = inputSubject.value.trim();
+            const message = inputMessage.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email && subject && message && emailRegex.test(email)) {
+                btnSend.disabled = false;
+                btnSend.querySelector('img').style.filter = 'none';
+            } else {
+                btnSend.disabled = true;
+                btnSend.querySelector('img').style.filter = 'grayscale(100%)';
+            }
+        }
+
+        function sendEmail() {
+            if (btnSend.disabled) return;
+
+            statusBar.textContent = 'Sending...';
+            btnSend.disabled = true;
+            document.body.style.cursor = 'wait';
+
+            // Mock sending
+            setTimeout(() => {
+                statusBar.textContent = 'Message sent successfully!';
+                statusBar.className = 'status-bar success';
+                document.body.style.cursor = 'default';
+
+                // Clear form
+                inputSubject.value = '';
+                inputMessage.value = '';
+                validateForm();
+
+                setTimeout(() => {
+                    statusBar.textContent = 'Ready';
+                    statusBar.className = 'status-bar';
+                }, 3000);
+            }, 1500);
+        }
+
+        // Initial validation state
+        validateForm();
+    </script>
+</body>
+
+</html>

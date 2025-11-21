@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad</title>
+    <link rel="stylesheet" href="../../css/os.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+        }
+
+        .notepad-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .menu-bar {
+            background: #f0f0f0;
+            border-bottom: 1px solid #a0a0a0;
+            padding: 2px 5px;
+            display: flex;
+            gap: 10px;
+            font-size: 11px;
+        }
+
+        .menu-item {
+            padding: 3px 8px;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            background: #0055ea;
+            color: white;
+        }
+
+        .editor-area {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        textarea {
+            flex: 1;
+            border: none;
+            padding: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            resize: none;
+            outline: none;
+        }
+
+        .markdown-preview {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            border-left: 1px solid #ccc;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .markdown-preview h1 {
+            font-size: 24px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .markdown-preview h2 {
+            font-size: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .markdown-preview h3 {
+            font-size: 16px;
+        }
+
+        .markdown-preview code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .markdown-preview pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .markdown-preview pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .markdown-preview blockquote {
+            border-left: 4px solid #ddd;
+            padding-left: 15px;
+            color: #666;
+            margin-left: 0;
+        }
+
+        .markdown-preview ul,
+        .markdown-preview ol {
+            padding-left: 30px;
+        }
+
+        .markdown-preview a {
+            color: #0055ea;
+            text-decoration: none;
+        }
+
+        .markdown-preview a:hover {
+            text-decoration: underline;
+        }
+
+        .markdown-preview img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .markdown-preview table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .markdown-preview table th,
+        .markdown-preview table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .markdown-preview table th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+
+        .split-view .editor-area textarea {
+            flex: 0.5;
+        }
+
+        .split-view .markdown-preview {
+            display: block;
+            flex: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="notepad-container">
+        <div class="menu-bar">
+            <div class="menu-item" onclick="newFile()">File</div>
+            <div class="menu-item" onclick="toggleView()">View</div>
+            <div class="menu-item" onclick="toggleMarkdown()">Format</div>
+        </div>
+        <div class="editor-area" id="editor-area">
+            <textarea id="text-editor" placeholder="Type your text here..."></textarea>
+            <div class="markdown-preview" id="markdown-preview"></div>
+        </div>
+    </div>
+
+    <script>
+        const editor = document.getElementById('text-editor');
+        const preview = document.getElementById('markdown-preview');
+        const editorArea = document.getElementById('editor-area');
+        let isMarkdownMode = false;
+        let isSplitView = false;
+
+        // Check if opened with markdown content from URL params
+        const urlParams = new URLSearchParams(window.location.search);
+        const content = urlParams.get('content');
+        const isMarkdown = urlParams.get('markdown') === 'true';
+
+        if (content) {
+            try {
+                editor.value = decodeURIComponent(content);
+                if (isMarkdown) {
+                    isMarkdownMode = true;
+                    isSplitView = true;
+                    editorArea.classList.add('split-view');
+                    updateMarkdownPreview();
+                }
+            } catch (e) {
+                console.error('Error loading content:', e);
+            }
+        }
+
+        // Update markdown preview
+        function updateMarkdownPreview() {
+            if (typeof marked !== 'undefined') {
+                preview.innerHTML = marked.parse(editor.value);
+            }
+        }
+
+        // Auto-update preview in markdown mode
+        editor.addEventListener('input', () => {
+            if (isMarkdownMode && isSplitView) {
+                updateMarkdownPreview();
+            }
+        });
+
+        function newFile() {
+            if (confirm('Create a new file? Any unsaved changes will be lost.')) {
+                editor.value = '';
+                preview.innerHTML = '';
+            }
+        }
+
+        function toggleView() {
+            isSplitView = !isSplitView;
+            if (isSplitView && isMarkdownMode) {
+                editorArea.classList.add('split-view');
+                updateMarkdownPreview();
+            } else {
+                editorArea.classList.remove('split-view');
+            }
+        }
+
+        function toggleMarkdown() {
+            isMarkdownMode = !isMarkdownMode;
+            if (isMarkdownMode) {
+                alert('Markdown mode enabled! Use View menu to toggle split view.');
+                if (isSplitView) {
+                    editorArea.classList.add('split-view');
+                    updateMarkdownPreview();
+                }
+            } else {
+                alert('Plain text mode enabled.');
+                editorArea.classList.remove('split-view');
+            }
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Ctrl+N for new file
+            if (e.ctrlKey && e.key === 'n') {
+                e.preventDefault();
+                newFile();
+            }
+            // Ctrl+M for markdown toggle
+            if (e.ctrlKey && e.key === 'm') {
+                e.preventDefault();
+                toggleMarkdown();
+            }
+            // Ctrl+Shift+V for view toggle
+            if (e.ctrlKey && e.shiftKey && e.key === 'V') {
+                e.preventDefault();
+                toggleView();
+            }
+        });
+    </script>
+</body>
+
+</html>

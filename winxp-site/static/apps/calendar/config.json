@@ -1,0 +1,13 @@
+{
+    "id": "calendar",
+    "name": "Calendar",
+    "icon": "images/icons/calendar.webp",
+    "type": "iframe",
+    "url": "/apps/calendar/index.html",
+    "defaultSize": {
+        "width": 660,
+        "height": 500
+    },
+    "resizable": true,
+    "description": "Calendar application"
+}

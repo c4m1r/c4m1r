@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows Media Player</title>
+    <link rel="stylesheet" href="../../css/os.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #2c3e50 0%, #1a1a2e 100%);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+
+        .player-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .playlist-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .playlist-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .playlist-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .playlist-info h2 {
+            margin: 0 0 5px 0;
+            font-size: 20px;
+        }
+
+        .playlist-info p {
+            margin: 0;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .track-list {
+            margin-top: 10px;
+        }
+
+        .track-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .track-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .track-item.active {
+            background: rgba(102, 126, 234, 0.3);
+        }
+
+        .track-number {
+            width: 30px;
+            text-align: center;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .track-cover {
+            width: 48px;
+            height: 48px;
+            border-radius: 4px;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+
+        .track-info {
+            flex: 1;
+        }
+
+        .track-title {
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .track-artist {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .track-duration {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .player-controls {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .now-playing {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .now-playing-cover {
+            width: 60px;
+            height: 60px;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
+        .now-playing-info {
+            flex: 1;
+        }
+
+        .now-playing-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .now-playing-artist {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #667eea;
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        .controls-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .control-btn.play {
+            width: 50px;
+            height: 50px;
+            background: #667eea;
+        }
+
+        .control-btn.play:hover {
+            background: #7c8ff0;
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .volume-slider {
+            flex: 1;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .volume-fill {
+            height: 100%;
+            background: #667eea;
+            border-radius: 2px;
+            width: 70%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="player-container">
+        <div class="playlist-area">
+            <div class="playlist-header">
+                <div class="playlist-logo">🎵</div>
+                <div class="playlist-info">
+                    <h2>My Music</h2>
+                    <p id="track-count">Loading...</p>
+                </div>
+            </div>
+            <div class="track-list" id="track-list">
+                <!-- Tracks will be injected here -->
+            </div>
+        </div>
+
+        <div class="player-controls">
+            <div class="now-playing" id="now-playing" style="display: none;">
+                <img src="" alt="Album Cover" class="now-playing-cover" id="current-cover">
+                <div class="now-playing-info">
+                    <div class="now-playing-title" id="current-title">No track playing</div>
+                    <div class="now-playing-artist" id="current-artist">Select a track to play</div>
+                </div>
+            </div>
+
+            <div class="progress-bar" id="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+
+            <div class="controls-buttons">
+                <button class="control-btn" onclick="previousTrack()">⏮</button>
+                <button class="control-btn play" onclick="togglePlay()" id="play-btn">▶</button>
+                <button class="control-btn" onclick="nextTrack()">⏭</button>
+            </div>
+
+            <div class="volume-control">
+                <span>🔊</span>
+                <div class="volume-slider" onclick="setVolume(event)">
+                    <div class="volume-fill" id="volume-fill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audio-player"></audio>
+
+    <script>
+        let tracks = [];
+        let currentTrackIndex = -1;
+        const audio = document.getElementById('audio-player');
+
+        // Mock music data (in real implementation, this would scan /static/music/)
+        const mockTracks = [
+            {
+                id: 1,
+                title: "Sample Track 1",
+                artist: "Artist Name",
+                album: "Album Name",
+                duration: 180000,
+                cover: "../../images/icons/music.png",
+                url: "../../music/sample1.mp3"
+            },
+            {
+                id: 2,
+                title: "Sample Track 2",
+                artist: "Another Artist",
+                album: "Another Album",
+                duration: 210000,
+                cover: "../../images/icons/music.png",
+                url: "../../music/sample2.mp3"
+            }
+        ];
+
+        function init() {
+            tracks = mockTracks;
+            renderTrackList();
+            document.getElementById('track-count').textContent = `${tracks.length} tracks`;
+
+            // Audio event listeners
+            audio.addEventListener('timeupdate', updateProgress);
+            audio.addEventListener('ended', nextTrack);
+        }
+
+        function renderTrackList() {
+            const trackList = document.getElementById('track-list');
+            trackList.innerHTML = tracks.map((track, index) => `
+                <div class="track-item" onclick="playTrack(${index})">
+                    <div class="track-number">${index + 1}</div>
+                    <img src="${track.cover}" alt="${track.title}" class="track-cover">
+                    <div class="track-info">
+                        <div class="track-title">${track.title}</div>
+                        <div class="track-artist">${track.artist}</div>
+                    </div>
+                    <div class="track-duration">${formatDuration(track.duration)}</div>
+                </div>
+            `).join('');
+        }
+
+        function playTrack(index) {
+            currentTrackIndex = index;
+            const track = tracks[index];
+
+            // Update UI
+            document.querySelectorAll('.track-item').forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+
+            document.getElementById('now-playing').style.display = 'flex';
+            document.getElementById('current-cover').src = track.cover;
+            document.getElementById('current-title').textContent = track.title;
+            document.getElementById('current-artist').textContent = track.artist;
+
+            // Load and play audio
+            audio.src = track.url;
+            audio.play().catch(() => {
+                console.log('Audio playback failed - file may not exist');
+            });
+
+            document.getElementById('play-btn').textContent = '⏸';
+        }
+
+        function togglePlay() {
+            if (currentTrackIndex === -1) {
+                playTrack(0);
+                return;
+            }
+
+            if (audio.paused) {
+                audio.play();
+                document.getElementById('play-btn').textContent = '⏸';
+            } else {
+                audio.pause();
+                document.getElementById('play-btn').textContent = '▶';
+            }
+        }
+
+        function nextTrack() {
+            if (currentTrackIndex < tracks.length - 1) {
+                playTrack(currentTrackIndex + 1);
+            }
+        }
+
+        function previousTrack() {
+            if (currentTrackIndex > 0) {
+                playTrack(currentTrackIndex - 1);
+            }
+        }
+
+        function updateProgress() {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            document.getElementById('progress-fill').style.width = progress + '%';
+        }
+
+        function setVolume(event) {
+            const slider = event.currentTarget;
+            const rect = slider.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const percentage = (x / rect.width) * 100;
+
+            audio.volume = percentage / 100;
+            document.getElementById('volume-fill').style.width = percentage + '%';
+        }
+
+        function formatDuration(ms) {
+            const minutes = Math.floor(ms / 60000);
+            const seconds = ((ms % 60000) / 1000).toFixed(0);
+            return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
+
+        // Initialize on load
+        init();
+    </script>
+</body>
+
+</html>
