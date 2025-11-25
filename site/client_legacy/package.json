@@ -1,0 +1,61 @@
+{
+  "name": "winos",
+  "version": "0.1.0",
+  "homepage": "https://windows.lindschouw.me",
+  "dependencies": {
+    "@types/classnames": "^2.2.7",
+    "@types/node": "13.9.3",
+    "@types/react": "^16.9.23",
+    "@types/react-autosuggest": "^9.3.7",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-transition-group": "^4.2.4",
+    "@types/react-truncate": "^2.3.3",
+    "@types/styled-components": "^5.0.1",
+    "@types/uuid": "^7.0.2",
+    "barrelsby": "^2.0.0",
+    "bfs-path": "^1.0.2",
+    "browserfs": "^1.4.3",
+    "classnames": "^2.2.6",
+    "mobx": "^5.15.4",
+    "mobx-react-lite": "^1.5.2",
+    "pepjs": "^0.5.0",
+    "prettier": "^2.0.1",
+    "react": "^16.13.1",
+    "react-autosuggest": "^9.4.3",
+    "react-contexify": "^4.1.1",
+    "react-dom": "^16.13.1",
+    "react-hotkeys": "^2.0.0",
+    "react-scripts": "^3.4.1",
+    "react-transition-group": "^4.0.1",
+    "react-truncate": "^2.4.0",
+    "sass": "^1.27.0",
+    "styled-components": "^5.0.1",
+    "typescript": "3.8.3",
+    "use-onclickoutside": "^0.3.1",
+    "uuid": "^7.0.2"
+  },
+  "scripts": {
+    "prestart": "npm run index-filesystem",
+    "start": "react-scripts start",
+    "prebuild": "npm run index-filesystem",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "index-filesystem": "node scripts/make-filesystem-index.js"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
