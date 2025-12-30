@@ -1,2 +1,0 @@
-export { PictureViewer } from './PictureViewer';
-
