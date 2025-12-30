@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>98 KAGE</title>
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link rel="stylesheet" href="css/98.css" />
+        <link rel="stylesheet" href="css/index.css" />
+        <link rel="stylesheet" href="css/prog.css" />
+        <link rel="stylesheet" href="lib/xterm/xterm.css" />
+        <link href="img/taskbar/WindowsFlagSmall.png" rel="icon">
+
+        <meta name="theme-color" content="#008888">
+    </head>
+    <body>
+        <div class="window-host">
+            <div class="window" data-window style="top: 50px;" data-name="Welcome!" data-icon="img/taskbar/WindowsFlagSmall.png" data-wm_order="0" data-_wm_id="initialwindow">
+                <div class="title-bar">
+                    <div class="title-bar-text">
+                        Welcome!
+                    </div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize"></button>
+                        <button aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="window-body typography">
+
+                    <h1>Patrick Kage</h1>
+                    <hr class="hr--accent"/>
+                    <p>
+                        Artificial Intelligence &amp; Full Stack Developer<br/>
+                        Final Year <abbr title="Bachelor of Science (Honours), projected First Class">BSc(H)</abbr> <strong>Artificial Intelligence &amp; Computer Science</strong><br/> 
+                        University of Edinburgh, Edinburgh, Scotland
+                    </p>
+                    <hr class="hr--accent"/>
+                    <p>
+                        Find me on:
+                        <ul>
+                            <li>
+                                <a href="https://github.com/pkage" target="_blank" rel="noopener">GitHub</a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/patrick-kage-652ba8122/" target="_blank" rel="noopener">LinkedIn</a>
+                            </li>
+                            <li>
+                                <a href="https://keybase.io/pkage" target="_blank" rel="noopener">Keybase</a>
+                            </li>
+                            <li>
+                                <a href="mailto:patrick@ka.ge">Email</a> (patrick@ka.ge)
+                            </li>
+                        </ul>
+                        And of course:
+                        <ul>
+                            <li>
+                                <a href="https://kage.dev/resume.pdf" target="_blank" data-upgrade="intro-launchresume">Resume</a>
+                            </li>
+                            <li>
+                                <a href="#" data-upgrade="intro-launchportfolio">Portfolio</a>
+                            </li>
+                        </ul>
+                    </p>
+                    <hr class="hr--accent"/>
+                    <p>
+                        This website is a faithful tribute to Windows 98, and most elements are<br/>
+                        as interactive as they would be in 1998, even on mobile devices.<br/>
+                        Feel free to play around!
+                        <noscript>
+                            <br/>
+                            Please note that this requires Javascript, which you have <br/>turned off.
+                            Your experience may be degraded.
+                        </noscript>
+                    </p>
+               </div>
+            </div>
+        </div>
+        <div class="desktop-container">
+            <canvas id="selections"></canvas>
+            <div class="desktop">
+                <div class="desktop-icon" data-launch="welcome">
+                    <img src="img/desktop/MyComputer.png" alt="My Computer">
+                    <span>My Computer</span>
+                </div>
+                <div class="desktop-icon" data-launch="networkneighborhod">
+                    <img src="img/desktop/NetworkNeighborhood.png" alt="Network Neighborhood">
+                    <span>Network Neighborhood</span>
+                </div>
+                <div class="desktop-icon" data-launch="mydocuments">
+                    <img src="img/desktop/MyDocuments.png" alt="My Documents">
+                    <span>My Documents</span>
+                </div>
+                <div class="desktop-icon" data-launch="portfolio">
+                    <img src="img/desktop/MyBriefcase.png" alt="My Briefcase">
+                    <span>My Portfolio</span>
+                </div>
+                <div class="desktop-icon" data-launch="resume">
+                    <img src="img/desktop/TextFile.png" alt="Resume">
+                    <div class="desktop-icon__shortcut">
+                        <img src="img/ShortcutIcon.png">
+                    </div>
+                    <span>Resume.pdf</span>
+                </div>
+                <div class="desktop-icon" data-launch="email">
+                    <img src="img/desktop/Email.png" alt="Outlook Express">
+                    <div class="desktop-icon__shortcut">
+                        <img src="img/ShortcutIcon.png">
+                    </div>
+                    <span>Outlook Express</span>
+                </div>
+                <div class="desktop-icon" data-launch="prompt">
+                    <img src="img/desktop/MSDOS.png" alt="DOS Prompt" >
+                    <div class="desktop-icon__shortcut">
+                        <img src="img/ShortcutIcon.png">
+                    </div>
+                    <span>MS-DOS Prompt</span>
+                </div>
+
+                <div class="desktop-icon" data-launch="recyclingbin">
+                    <img src="img/desktop/RecyclingBin.png" alt="RecyclingBin">
+                    <span>Recycling Bin</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="task-bar">
+            <button id="start-btn">
+                <img src="img/taskbar/Start.png"/>
+            </button>
+
+            <div class="task-bar__divider"></div>
+            
+            <img src="img/taskbar/ShowDesktop.png" alt="Show Desktop" title="Show Desktop" class="task-bar__quick">
+            <img src="img/taskbar/IESmall.png" alt="Internet Explorer" title="Lauch Internet Explorer Browser" class="task-bar__quick">
+            <img src="img/taskbar/OutlookExpress.png" alt="Outlook Express" title="Lauch Outlook Express" class="task-bar__quick" data-launch="email">
+
+            <div class="task-bar__divider"></div>
+            <div class="task-bar__main" id="task-bar__main">
+
+            </div>
+            <div class="task-bar__divider"></div>
+            <div class="task-bar__tray">
+                <img src="img/taskbar/TaskScheduler.png" alt="Task Scheduler" title="Task Scheduler is ready." class="task-bar__tray__icon"/>
+                <img src="img/taskbar/Volume.png" alt="Volume" title="Volume" class="task-bar__tray__icon"/>
+                <span id="time">12:57 PM</span>
+            </div>
+        </div>
+
+        <div class="start-menu__container">
+            <div class="start-menu">
+                <div class="start-menu__stripe">
+                    <span class="start-menu__stripe-text">
+                        PATRICK&nbsp;<b>KAGE</b>
+                    </span>
+                </div>
+                <div class="start-menu__menu">
+                    <div class="start-menu__item" data-launch="shutdown">
+                        <img class="start-menu__icon" src="img/startmenu/ShutDown.png" alt="Shut Down">
+                        <span class="start-menu__item-text">Shut Down...</span>
+                    </div>
+                    <div class="start-menu__item" data-launch="logoff">
+                        <img class="start-menu__icon" src="img/startmenu/LogOff.png" alt="Log Off">
+                        <span class="start-menu__item-text">Log Off Patrick...</span>
+                    </div>
+                    <div class="start-menu__divider"></div>
+                    <div class="start-menu__item" data-launch="run">
+                        <img class="start-menu__icon" src="img/startmenu/Run.png" alt="Run">
+                        <span class="start-menu__item-text">Run...</span>
+                    </div>
+                    <div class="start-menu__item">
+                        <img class="start-menu__icon" src="img/startmenu/Help.png" alt="Help">
+                        <span class="start-menu__item-text">Help</span>
+                    </div>
+                    <div class="start-menu__item">
+                        <img class="start-menu__icon" src="img/startmenu/Find.png" alt="Find">
+                        <span class="start-menu__item-text">Find</span>
+                        <img src="img/startmenu/MenuIndicator.png" alt="Menu" class="start-menu__item-menu-indicator">
+                    </div>
+                    <div class="start-menu__item">
+                        <img class="start-menu__icon" src="img/startmenu/Settings.png" alt="Settings">
+                        <span class="start-menu__item-text">Settings</span>
+                        <img src="img/startmenu/MenuIndicator.png" alt="Menu" class="start-menu__item-menu-indicator">
+                    </div>
+                    <div class="start-menu__item">
+                        <img class="start-menu__icon" src="img/startmenu/Documents.png" alt="Documents">
+                        <span class="start-menu__item-text">Documents</span>
+                        <img src="img/startmenu/MenuIndicator.png" alt="Menu" class="start-menu__item-menu-indicator">
+                        <div class="start-menu__submenu-container">
+                            <div class="start-menu__submenu">
+                                <div class="start-menu__submenu-item">
+                                    <img class="start-menu__submenu-icon" src="img/startmenu/SubFolder.png" alt="SubFolder">
+                                    <span>Contact Info</span>
+                                    <img src="img/startmenu/MenuIndicator.png" alt="Menu" class="start-menu__item-menu-indicator">
+                                    <div class="start-menu__submenu-container">
+                                        <div class="start-menu__submenu">
+                                            <a href="mailto:patrick@ka.ge" target="_blank" rel="noopener">
+                                                <div class="start-menu__submenu-item">
+                                                    <img class="start-menu__submenu-icon" src="img/taskbar/OutlookExpress.png" alt="Email">
+                                                    <span>Email</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="https://github.com/pkage/" target="_blank" rel="noopener">
+                                    <div class="start-menu__submenu-item">
+                                        <img class="start-menu__submenu-icon" src="img/taskbar/IESmall.png" alt="IE">
+                                        <span>GitHub</span>
+                                    </div>
+                                </a>
+                                <a href="https://www.linkedin.com/in/patrick-kage-652ba8122/" target="_blank" rel="noopener">
+                                    <div class="start-menu__submenu-item">
+                                        <img class="start-menu__submenu-icon" src="img/taskbar/IESmall.png" alt="IE">
+                                        <span>LinkedIn</span>
+                                    </div>
+                                </a>
+                                <a href="https://keybase.io/pkage/" target="_blank" rel="noopener">
+                                    <div class="start-menu__submenu-item">
+                                        <img class="start-menu__submenu-icon" src="img/taskbar/IESmall.png" alt="IE">
+                                        <span>Keybase</span>
+                                    </div>
+                                </a>
+                                <a href="https://codepen.io/quadnix/" target="_blank" rel="noopener">
+                                    <div class="start-menu__submenu-item">
+                                        <img class="start-menu__submenu-icon" src="img/taskbar/IESmall.png" alt="IE">
+                                        <span>CodePen</span>
+                                    </div>
+                                </a>
+                                <div class="start-menu__submenu-item" data-launch="resume">
+                                    <img class="start-menu__submenu-icon" src="img/desktop/MyBriefcase.png" alt="My Briefcase">
+                                    <span>Portfolio</span>
+                                </div>
+                                <div class="start-menu__submenu-item" data-launch="resume">
+                                    <img class="start-menu__submenu-icon" src="img/desktop/TextFile.png" alt="Text File">
+                                    <span>Resume</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="start-menu__item">
+                        <img class="start-menu__icon" src="img/startmenu/Favorites.png" alt="Favorites">
+                        <span class="start-menu__item-text">Favorites</span>
+                        <img src="img/startmenu/MenuIndicator.png" alt="Menu" class="start-menu__item-menu-indicator">
+                        <div class="start-menu__submenu-container">
+                            <div class="start-menu__submenu">
+                                <div class="start-menu__submenu-item" data-launch="mydocuments">
+                                    <img class="start-menu__submenu-icon" src="img/desktop/MyDocuments.png" alt="IE">
+                                    <span>My Documents</span>
+                                </div>
+                                <div class="start-menu__submenu-item" data-launch="recyclingbin">
+                                    <img class="start-menu__submenu-icon" src="img/desktop/RecyclingBin.png" alt="IE">
+                                    <span>Recycling Bin</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="start-menu__item">
+                        <img class="start-menu__icon" src="img/startmenu/Programs.png" alt="Programs">
+                        <span class="start-menu__item-text">Programs</span>
+                        <img src="img/startmenu/MenuIndicator.png" alt="Menu" class="start-menu__item-menu-indicator">
+                        <div class="start-menu__submenu-container">
+                            <div class="start-menu__submenu">
+                                <div class="start-menu__submenu-item">
+                                    <img class="start-menu__submenu-icon" src="img/startmenu/SubFolder.png" alt="SubFolder">
+                                    <span>Accessories</span>
+                                    <img src="img/startmenu/MenuIndicator.png" alt="Menu" class="start-menu__item-menu-indicator">
+                                    <div class="start-menu__submenu-container">
+                                        <div class="start-menu__submenu">
+                                            <div class="start-menu__submenu-item" data-launch="welcome">
+                                                <img class="start-menu__submenu-icon" src="img/taskbar/WindowsFlagSmall.png" alt="WinFlagSmall">
+                                                <span>Welcome</span>
+                                            </div>
+                                            <div class="start-menu__submenu-item" data-launch="resume">
+                                                <img class="start-menu__submenu-icon" src="img/desktop/TextFile.png" alt="Text File">
+                                                <span>Resume&nbsp;Viewer</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="start-menu__submenu-item" data-launch="resume">
+                                    <img class="start-menu__submenu-icon" src="img/desktop/TextFile.png" alt="Text File">
+                                    <span>Resume&nbsp;Viewer</span>
+                                </div>
+                                <div class="start-menu__submenu-item" data-launch="notepad">
+                                    <img class="start-menu__submenu-icon" src="img/desktop/Notepad.png" alt="Text File">
+                                    <span>Notepad</span>
+                                </div>
+                                <div class="start-menu__submenu-item" data-launch="email">
+                                    <img class="start-menu__submenu-icon" src="img/desktop/Email.png" alt="Text File">
+                                    <span>Outlook Express</span>
+                                </div>
+                                <div class="start-menu__submenu-item" data-launch="prompt">
+                                    <img class="start-menu__submenu-icon" src="img/desktop/MSDOS.png" alt="Text File">
+                                    <span>MS-DOS Prompt</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" id="dummy" target="_blank" rel="noopener"></a>
+
+        <script src="lib/inobounce.js" type="text/javascript"></script>
+        <script src="index.js" type="text/javascript"></script>
+        <script src="windows.js" type="text/javascript"></script>
+        <script src="desktop.js" type="text/javascript"></script>
+        <script src="startmenu.js" type="text/javascript"></script>
+        <script src="programs.js" type="text/javascript"></script>
+
+        <script src="prog/resume.js" type="text/javascript" defer></script>
+        <script src="prog/welcome.js" type="text/javascript" defer></script>
+        <script src="prog/prompt.js" type="text/javascript" defer></script>
+        <script src="prog/explorer.js" type="text/javascript" defer></script>
+        <script src="prog/portfolio.js" type="text/javascript" defer></script>
+        <script src="prog/notepad.js" type="text/javascript" defer></script>
+        <script src="prog/email.js" type="text/javascript" defer></script>
+        <script src="prog/shutdown.js" type="text/javascript" defer></script>
+        <script src="prog/run.js" type="text/javascript" defer></script>
+        
+        <script src="lib/xterm/xterm.js" type="text/javascript" defer></script>
+        <script src="lib/xterm/fit.js" type="text/javascript" defer></script>
+
+        <svg class="svg__defsonly"> 
+            <defs>
+                <filter id="blueselect">
+                     <feColorMatrix type="matrix"
+                         values="0.1   0     0     0 0
+                                 0     0.1   0     0 0
+                                 0     0     1     0 0
+                                 0     0     0     1 0"/>
+                </filter>
+            </defs>
+        </svg>
+    </body>
+</html>

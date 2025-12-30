@@ -1,0 +1,2 @@
+export { Notepad } from './Notepad';
+

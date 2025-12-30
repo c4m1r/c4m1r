@@ -1,0 +1,127 @@
+/* --- RESUME --- */
+.window[data-name="Resume Viewer"] > .window-body {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+
+    height: calc(100% - 20px);
+}
+
+.window[data-name="Resume Viewer"] iframe {
+    flex-grow: 1;
+}
+/* fix iframe eating events when wm events are occurring/not focused */
+.window[data-name="Resume Viewer"]:not([data-wm_order="0"]) iframe,
+.window[data-name="Resume Viewer"][data-isdragging="true"]  iframe,
+.window[data-name="Resume Viewer"][data-isresizing="true"]  iframe {
+    pointer-events: none;
+}
+
+.window[data-name="Resume Viewer"] .resume__toolbar {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: baseline;
+    justify-content: flex-start;
+
+    margin-top: 4px;
+    padding: 2px;
+}
+
+.window[data-name="Resume Viewer"] .resume__toolbar > a {
+    margin-left: 1rem;
+}
+
+
+.window[data-name="Resume Viewer"] iframe.resume__iframe--mobile {
+    height: 0;
+    width: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+/* --- PROMPT --- */
+
+.window[data-name="Prompt"] > .window-body {
+    margin: 0;
+}
+
+/* --- PORTFOLIO --- */
+.window[data-name="Portfolio - Work"],
+.window[data-name="Portfolio - School"],
+.window[data-name="Portfolio - Personal"] {
+    max-width: 90vw;
+}
+
+/* --- EXPLORER --- */
+
+.explorer__body {
+    background-color: white;
+    min-height: 200px;
+
+    box-shadow: var(--inset__inverse);
+
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.explorer__desktop {
+    display: grid;
+    grid-template-rows: repeat(auto-fill, 78px);
+    grid-template-columns: repeat(auto-fill, 64px);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+
+    color: black;
+
+    user-select: none;
+    -webkit-user-select: none;
+
+    flex-grow: 1;
+
+    padding: 5px;
+}
+
+
+/* --- NOTEPAD --- */
+
+.window[data-name="Notepad"] .notepad__textarea {
+    flex-grow: 1;
+    font-family: courier-new, courier, monospace;
+    padding: 8px;
+    resize: none;
+
+    min-height: 100px;
+    min-width: 200px;
+}
+
+/* --- EMAIL --- */
+
+.window[data-name="Email"] .email__body {
+    flex-grow: 1;
+    /*font-family: courier-new, courier, monospace;*/
+    padding: 8px;
+    resize: none;
+
+    min-height: 200px;
+    min-width: 300px;
+}
+
+.window[data-name="Email"] .email__send {
+    justify-self: flex-end;
+}
+
+/* --- RUN --- */
+
+.window[data-name="Run"] .run__runbar {
+    margin-bottom: 10px;
+}
+
+.window[data-name="Run"] .run__runbar > span {
+    margin: 0 10px 0 5px;
+}

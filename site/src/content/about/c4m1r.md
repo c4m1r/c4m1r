@@ -1,0 +1,1 @@
+This project was born out of a desire to create a portfolio that would be both fun and original.

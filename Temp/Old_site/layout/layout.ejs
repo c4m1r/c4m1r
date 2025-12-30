@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="<%= config.language %>">
+ <head> 
+  <meta charset="utf-8" /> 
+  <title><%= config.title %></title> 
+  <link rel="icon" href="<%= theme.fav %>" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta name="keywords" content="<%= config.keywords %>" />
+  <meta name="description" content="<%= config.description %>" /> 
+  <link rel="canonical" href="<%= config.url %>" /> 
+  <link rel="stylesheet" href="/css/style.css" /> 
+  <link rel="stylesheet" href="/css/mdui.css" importance="high"/> 
+  <% if (theme.aplayer.enable) { %>
+  <link rel="stylesheet" href="https://blog.kuri.ink/lib/aplayer@1.10.0/aplayer.min.css" /> 
+  <% } %>
+  <style>
+   @import url("<%= theme.iconfont %>");
+  </style>      
+ </head> 
+ <body> 
+   <%- include("_widget/cover.ejs") %>
+  <div class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-layout-auto mdui-loaded"> 
+   <!-- background --> 
+   <div id="bg" class="index_bg"></div> 
+   <!-- main --> 
+   <div>
+    
+    <%- include("_partial/header.ejs") %> 
+
+    <div class="mdui-drawer mdui-drawer-close sidebar" id="main-drawer">
+     <div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 75px;">
+      <% for (c in theme.sidebar) { %>
+      <% if (theme.sidebar[c] && typeof theme.sidebar[c] === 'object') { %>
+      <div class="mdui-collapse-item mdui-collapse-item-close">
+       <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white <%= theme.sidebar_color[c] ? theme.sidebar_color[c][1] : '' %>"><%= theme.sidebar_color[c] ? theme.sidebar_color[c][0] : 'folder' %></i>
+        <div class="mdui-list-item-content">
+         <%= c %>
+        </div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+       </div>
+       <div class="mdui-collapse-item-body mdui-list">
+       <% for (d in theme.sidebar[c]) { %>
+       <% if (theme.sidebar[c][d] && Array.isArray(theme.sidebar[c][d]) && theme.sidebar[c][d].length >= 2) { %>
+          <a href="<%= theme.sidebar[c][d][0] %>" target="_blank" mdui-tooltip="{content: '<%= theme.sidebar[c][d][1] %>'}" class="mdui-list-item mdui-ripple"><%= d %></a>
+       <% } %>
+       <% } %>
+       </div>
+      </div>
+      <% } %>
+      <% } %>
+     </div>
+    </div>
+   </div> 
+
+   <%- include("_partial/container.ejs") %> 
+
+   <!-- footer --> 
+   <div id="footer" class="footer"> 
+    <p class="remark">
+      <%- theme.remark %><br>
+      <%- theme.regist %>
+      <%- include("_partial/LICENSE.EJS") %>
+    </p> 
+   </div>  
+   <script async="" src="https://blog.kuri.ink/lib/aplayer@1.10.0/aplayer.min.js" type="text/javascript"></script> 
+   <script async="" src="https://blog.kuri.ink/lib/meting/meting.min.js" type="text/javascript"></script>
+
+   <% if (theme.aplayer.enable) { %>
+      <meting-js style="position: absolute; z-index:99999;" type="<%= theme.aplayer.type %>" server="<%= theme.aplayer.server %>" id="<%= theme.aplayer.id %>" fixed="<%= theme.aplayer.fixed %>"></meting-js> 
+   <% } %>
+
+   <% if (theme.analysis.platform === "51.la" && theme.analysis.id && theme.analysis.cd) { %>
+      <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+      <script>LA.init({id: "<%= theme.analysis.id %>",ck: "<%= theme.analysis.cd %>"})</script>
+   <% } %>
+
+  </div>
+  
+  <!-- MDUI скрипт должен загружаться в конце body -->
+  <script src="/js/mdui.min.js"></script>
+  
+  <!-- Инициализация MDUI после загрузки DOM -->
+  <script>
+    (function() {
+      function initMDUI() {
+        if (typeof mdui === 'undefined') {
+          console.error('MDUI не загружен');
+          return;
+        }
+        
+        // Инициализация collapse компонентов
+        var collapseElements = document.querySelectorAll('[mdui-collapse]');
+        collapseElements.forEach(function(element) {
+          try {
+            var collapseItems = element.querySelectorAll('.mdui-collapse-item');
+            if (collapseItems.length > 0) {
+              // Парсим атрибут mdui-collapse
+              var collapseAttr = element.getAttribute('mdui-collapse') || '';
+              var accordion = collapseAttr.includes('accordion: true') || collapseAttr.includes('accordion:true');
+              
+              // Подготавливаем все collapse-item-body перед инициализацией
+              collapseItems.forEach(function(item) {
+                var body = item.querySelector('.mdui-collapse-item-body');
+                if (body) {
+                  // Убеждаемся, что body имеет правильную структуру
+                  // Временно устанавливаем высоту для вычисления scrollHeight
+                  var originalHeight = body.style.height;
+                  var originalDisplay = body.style.display;
+                  
+                  body.style.height = 'auto';
+                  body.style.display = 'block';
+                  var scrollHeight = body.scrollHeight || 0;
+                  
+                  // Восстанавливаем исходное состояние
+                  body.style.height = originalHeight || '0px';
+                  body.style.display = originalDisplay || '';
+                  
+                  // Если scrollHeight равен 0, но есть дочерние элементы, устанавливаем минимальную высоту
+                  if (scrollHeight === 0 && body.children.length > 0) {
+                    body.style.minHeight = '1px';
+                  }
+                  
+                  // Убеждаемся, что body закрыт по умолчанию
+                  if (!item.classList.contains('mdui-collapse-item-open')) {
+                    body.style.height = '0px';
+                    body.style.overflow = 'hidden';
+                  }
+                }
+              });
+              
+              // Небольшая задержка для правильной инициализации
+              setTimeout(function() {
+                try {
+                  // Инициализируем collapse
+                  var collapse = new mdui.Collapse(element, {
+                    accordion: accordion
+                  });
+                } catch (e) {
+                  console.error('Ошибка создания collapse:', e);
+                  // Пытаемся инициализировать вручную, если автоматическая инициализация не сработала
+                  try {
+                    collapseItems.forEach(function(item) {
+                      var header = item.querySelector('.mdui-collapse-item-header');
+                      var body = item.querySelector('.mdui-collapse-item-body');
+                      if (header && body) {
+                        header.addEventListener('click', function() {
+                          if (item.classList.contains('mdui-collapse-item-open')) {
+                            body.style.height = '0px';
+                            item.classList.remove('mdui-collapse-item-open');
+                          } else {
+                            if (accordion) {
+                              collapseItems.forEach(function(otherItem) {
+                                if (otherItem !== item) {
+                                  otherItem.classList.remove('mdui-collapse-item-open');
+                                  var otherBody = otherItem.querySelector('.mdui-collapse-item-body');
+                                  if (otherBody) {
+                                    otherBody.style.height = '0px';
+                                  }
+                                }
+                              });
+                            }
+                            body.style.height = 'auto';
+                            var height = body.scrollHeight;
+                            body.style.height = height + 'px';
+                            item.classList.add('mdui-collapse-item-open');
+                          }
+                        });
+                      }
+                    });
+                  } catch (e2) {
+                    console.error('Ошибка ручной инициализации collapse:', e2);
+                  }
+                }
+              }, 100);
+            }
+          } catch (e) {
+            console.warn('Ошибка инициализации collapse:', e);
+          }
+        });
+        
+        // Инициализация drawer
+        var drawerElements = document.querySelectorAll('[mdui-drawer]');
+        drawerElements.forEach(function(element) {
+          try {
+            var drawerAttr = element.getAttribute('mdui-drawer') || '';
+            var targetMatch = drawerAttr.match(/target:\s*['"]([^'"]+)['"]/);
+            var swipeMatch = drawerAttr.match(/swipe:\s*(true|false)/);
+            
+            if (targetMatch) {
+              var target = document.querySelector(targetMatch[1]);
+              if (target && !target.mduiDrawer) {
+                new mdui.Drawer(target, {
+                  swipe: swipeMatch && swipeMatch[1] === 'true'
+                });
+              }
+            }
+          } catch (e) {
+            console.warn('Ошибка инициализации drawer:', e);
+          }
+        });
+        
+        // Инициализация tooltip
+        var tooltipElements = document.querySelectorAll('[mdui-tooltip]');
+        tooltipElements.forEach(function(element) {
+          try {
+            if (!element.mduiTooltip) {
+              var tooltipAttr = element.getAttribute('mdui-tooltip') || '';
+              var contentMatch = tooltipAttr.match(/content:\s*['"]([^'"]+)['"]/);
+              
+              if (contentMatch) {
+                new mdui.Tooltip(element, {
+                  content: contentMatch[1]
+                });
+              }
+            }
+          } catch (e) {
+            console.warn('Ошибка инициализации tooltip:', e);
+          }
+        });
+      }
+      
+      // Ждем полной загрузки DOM и MDUI
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          // Даем время MDUI загрузиться
+          setTimeout(initMDUI, 100);
+        });
+      } else {
+        setTimeout(initMDUI, 100);
+      }
+    })();
+  </script>
+ </body>
+</html>

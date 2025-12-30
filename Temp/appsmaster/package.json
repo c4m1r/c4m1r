@@ -1,0 +1,15 @@
+{
+  "name": "paul-berberian-homepage",
+  "version": "0.1.0",
+  "description": "My personal homepage, emulating a desktop environment.",
+  "author": "peaBerberian",
+  "scripts": {
+    "build": "node build.mjs",
+    "build:min": "node build.mjs --minify",
+    "build:watch": "node build.mjs --watch",
+    "start": "node ./start_local_server.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.4"
+  }
+}

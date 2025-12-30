@@ -1,0 +1,99 @@
+# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Build and Deploy
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: gh-deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  update-projects:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.13'
+
+      - name: Run update script
+        run: python scripts/update-projects.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Commit changes
+        id: commit
+        run: |
+          if git diff --quiet content/projects.json; then
+            echo "No changes to projects.json"
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            git add content/projects.json
+            git commit -m "Update projects.json"
+            git push
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+  build-and-deploy:
+    needs: update-projects
+    if: needs.update-projects.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [22.x]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          # Pull latest `main` with the updated projects
+          ref: 'main'
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - name: Installing Packages
+        run: pnpm install --frozen-lockfile
+
+      - name: Building
+        run: pnpm build
+        env:
+          NEXT_PUBLIC_TRACKING_ID: ${{ vars.NEXT_PUBLIC_TRACKING_ID }}
+          NEXT_PUBLIC_GITHUB_API_TOKEN: ${{ secrets.NEXT_PUBLIC_GITHUB_API_TOKEN }}
+
+      - name: Exporting Bundle Files
+        run: pnpm export
+        env:
+          NEXT_PUBLIC_TRACKING_ID: ${{ vars.NEXT_PUBLIC_TRACKING_ID }}
+          NEXT_PUBLIC_GITHUB_API_TOKEN: ${{ secrets.NEXT_PUBLIC_GITHUB_API_TOKEN }}
+
+      - name: Disable All Jekyll
+        run: touch ./out/.nojekyll
+
+      - name: Deploy to Github-Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: out # The folder the action should deploy.

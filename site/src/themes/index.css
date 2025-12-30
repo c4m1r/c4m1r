@@ -1,0 +1,33 @@
+/**
+ * Общие стили для всех тем
+ * Импортирует стили каждой темы
+ */
+
+/* Windows XP / WebOS стили */
+@import './winxp/xp.css';
+
+/* TODO: Добавить стили для других тем */
+/* @import './win98/win98.css'; */
+/* @import './win7/win7.css'; */
+/* @import './win10/win10.css'; */
+/* @import './win11/win11.css'; */
+
+/* Общие утилиты для всех тем */
+.theme-transition {
+  transition: all 0.3s ease;
+}
+
+.desktop {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.desktop-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+

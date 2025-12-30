@@ -1,0 +1,1 @@
+In accordance with the provisions of Law No. 2004-575 of June 21, 2004, for confidence in the digital economy, users of the Portfolio - Paul Jaguin website are informed of the identity of the various parties involved in its creation and monitoring.

@@ -1,0 +1,185 @@
+/* Minesweeper CSS - замена styled-components */
+
+.minesweeper-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: linear-gradient(180deg, #cfcfcf 0%, #b5b5b5 100%);
+  border: 4px solid;
+  border-color: #ffffff #7b7b7b #7b7b7b #ffffff;
+  font-family: 'MS Sans Serif', Arial, sans-serif;
+  user-select: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* Scoreboard */
+.minesweeper-scoreboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  background: linear-gradient(180deg, #d7d7d7 0%, #c3c3c3 100%);
+  border: 3px solid;
+  border-color: #ffffff #7b7b7b #7b7b7b #ffffff;
+}
+
+/* Counter (mines and time) */
+.minesweeper-counter {
+  display: flex;
+  gap: 2px;
+  padding: 3px 5px;
+  background: #000000;
+  border: 2px solid;
+  border-color: #3c3c3c #dedede #dedede #3c3c3c;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.65);
+}
+
+.minesweeper-digit {
+  width: 13px;
+  height: 23px;
+  background-image: url('./assets/digits.png');
+  background-size: 130px 23px;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 2px rgba(255, 0, 0, 0.4));
+}
+
+.minesweeper-digit-0 { background-position: 0 0; }
+.minesweeper-digit-1 { background-position: -13px 0; }
+.minesweeper-digit-2 { background-position: -26px 0; }
+.minesweeper-digit-3 { background-position: -39px 0; }
+.minesweeper-digit-4 { background-position: -52px 0; }
+.minesweeper-digit-5 { background-position: -65px 0; }
+.minesweeper-digit-6 { background-position: -78px 0; }
+.minesweeper-digit-7 { background-position: -91px 0; }
+.minesweeper-digit-8 { background-position: -104px 0; }
+.minesweeper-digit-9 { background-position: -117px 0; }
+
+/* Reset button (smiley) */
+.minesweeper-reset-button {
+  width: 28px;
+  height: 28px;
+  border: 2px solid;
+  border-color: #ffffff #7b7b7b #7b7b7b #ffffff;
+  background: linear-gradient(180deg, #fdfdfd 0%, #c7c7c7 100%);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.minesweeper-reset-button:active {
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.minesweeper-smiley {
+  width: 26px;
+  height: 26px;
+  background-image: url('./assets/smileys.png');
+  background-size: 130px 26px;
+  background-repeat: no-repeat;
+}
+
+.minesweeper-smiley-smile { background-position: 0 0; }
+.minesweeper-smiley-press { background-position: -26px 0; }
+.minesweeper-smiley-win { background-position: -52px 0; }
+.minesweeper-smiley-lose { background-position: -78px 0; }
+.minesweeper-smiley-hover { background-position: -104px 0; }
+
+/* Minefield */
+.minesweeper-minefield {
+  border: 3px solid;
+  border-color: #ffffff #7b7b7b #7b7b7b #ffffff;
+  background: #bdbdbd;
+  display: inline-block;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.35);
+}
+
+.minesweeper-row {
+  display: flex;
+  line-height: 0;
+}
+
+/* Cell */
+.minesweeper-cell {
+  width: 16px;
+  height: 16px;
+  border: 2px solid;
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  box-sizing: content-box;
+}
+
+.minesweeper-cell-covered {
+  border-color: #ffffff #808080 #808080 #ffffff;
+  background: #c3c3c3;
+}
+
+.minesweeper-cell-covered:active {
+  border-color: #808080 #808080 #808080 #808080;
+}
+
+.minesweeper-cell-revealed {
+  border: 1px solid #808080;
+  background: #dbdbdb;
+  padding: 1px;
+}
+
+.minesweeper-cell-flagged {
+  border-color: #ffffff #808080 #808080 #ffffff;
+  background: #c0c0c0;
+}
+
+/* Cell sprite backgrounds */
+.minesweeper-cell-sprite {
+  width: 16px;
+  height: 16px;
+  background-image: url('./assets/cells.png');
+  background-size: 256px 16px;
+  background-repeat: no-repeat;
+}
+
+.minesweeper-sprite-0 { background-position: 0 0; }
+.minesweeper-sprite-1 { background-position: -16px 0; }
+.minesweeper-sprite-2 { background-position: -32px 0; }
+.minesweeper-sprite-3 { background-position: -48px 0; }
+.minesweeper-sprite-4 { background-position: -64px 0; }
+.minesweeper-sprite-5 { background-position: -80px 0; }
+.minesweeper-sprite-6 { background-position: -96px 0; }
+.minesweeper-sprite-7 { background-position: -112px 0; }
+.minesweeper-sprite-8 { background-position: -128px 0; }
+.minesweeper-sprite-mine { background-position: -144px 0; }
+.minesweeper-sprite-mine-exploded { background-position: -160px 0; }
+.minesweeper-sprite-mine-wrong { background-position: -176px 0; }
+.minesweeper-sprite-flag { background-position: -192px 0; }
+.minesweeper-sprite-question { background-position: -208px 0; }
+
+/* Number colors when not using sprites */
+.minesweeper-number-1 { color: #0000ff; }
+.minesweeper-number-2 { color: #008000; }
+.minesweeper-number-3 { color: #ff0000; }
+.minesweeper-number-4 { color: #000080; }
+.minesweeper-number-5 { color: #800000; }
+.minesweeper-number-6 { color: #008080; }
+.minesweeper-number-7 { color: #000000; }
+.minesweeper-number-8 { color: #808080; }
+
+/* Game states */
+.minesweeper-game-won .minesweeper-cell-covered {
+  cursor: default;
+}
+
+.minesweeper-game-lost .minesweeper-cell {
+  cursor: default;
+}
+

@@ -1,0 +1,492 @@
+{
+  "en": {
+    "education": [
+      {
+        "title": "SQL Interactive Simulator — Data Marathon",
+        "subtitle": "Remote",
+        "year": "2025",
+        "details": [
+          "SQL fundamentals with Python for data processing",
+          "169+ learning tasks",
+          "Hands-on assignments on real datasets"
+        ]
+      },
+      {
+        "title": "Computer Forensics",
+        "subtitle": "Volgograd State University · Institute of Priority Technologies",
+        "year": "2024",
+        "details": [
+          "Focus: digital forensics, information security, software analysis",
+          "Coursework: computer systems expertise, data analysis, investigation methodologies"
+        ]
+      },
+      {
+        "title": "Programming in C#",
+        "subtitle": "Tyumen Training Center “Delpha”",
+        "year": "2021",
+        "details": [
+          "Professional retraining covering OOP and the broader .NET ecosystem",
+          "Qualification tests & exam passed"
+        ]
+      },
+      {
+        "title": "Economics & Accounting (Industry-Specific)",
+        "subtitle": "International Academy of Business & Management (MUBiU), Moscow",
+        "year": "2020",
+        "details": [
+          "Major: accounting, audit, financial analysis",
+          "Training in economic modeling, financial reporting, analytical tools"
+        ]
+      },
+      {
+        "title": "Languages",
+        "subtitle": "",
+        "year": "",
+        "details": [
+          "Russian — Native",
+          "English — B2 (Upper-Intermediate)"
+        ]
+      }
+    ],
+    "it": [
+      {
+        "title": "Systems Administrator (Servers)",
+        "subtitle": "TOO SKIFTRADE · Small.kz",
+        "year": "May 2025 — January 2026",
+        "details": [
+          "Designed and implemented scalable IT architectures and high-availability patterns.",
+          "Administered RHV/oVirt (KVM) virtualization clusters.",
+          "Introduced orchestration/automation stacks based on Ansible, SaltStack and Terraform.",
+          "Built monitoring stacks (Zabbix, Prometheus) with alerting dashboards for DevOps teams.",
+          "Automated CI/CD delivery pipelines (GitLab, Kubernetes, Docker Swarm, Nomad).",
+          "Maintained load balancers (HAProxy, Nginx, Traefik, Envoy).",
+          "Managed Linux (CentOS, RHEL, Debian) and Windows Server 2008–2019, integrated FreeIPA + Active Directory.",
+          "Operated logging/backup/mail subsystems (Graylog, ELK/EFK, Bacula/Bareos, Veeam, Postfix, Dovecot, Zimbra, Mailcow).",
+          "Worked with databases (MySQL, PostgreSQL, MongoDB, Elastic, MS SQL) and Keycloak SSO.",
+          "Automated tasks via Bash, Python, PowerShell; delivered HA blueprints."
+        ]
+      },
+      {
+        "title": "Head of IT Department",
+        "subtitle": "iGroup · iTaxi Technologies (Yandex Taxi partner)",
+        "year": "May 2023 — May 2025",
+        "details": [
+          "Managed the IT team: task allocation, KPI tracking, coordination with business units.",
+          "Optimized infrastructure with custom Ubuntu-based OS for call center tied into Windows AD/Samba/Squid.",
+          "Administered CentOS/Ubuntu fleets on Proxmox VE, Docker, iSCSI, CEPH, TrueNAS, Synology.",
+          "Maintained SIP/IP telephony: Asterisk, FreePBX, FOP2, AmoCRM, Bitrix, GLPI integrations.",
+          "Secured networks: DDoS mitigation, Fail2Ban, UniFi + MikroTik SDN, VPN mesh.",
+          "Deployed access control, CCTV, Wi-Fi (Ubiquiti), structured cabling, server room cooling.",
+          "Achievements: boosted IT productivity by 60%, introduced SLA/ticketing, eliminated container/VM outages, raised Tele2/Altel uptime to 99.9%.",
+          "Stack: FreePBX, PostgreSQL, Windows Server 2022, Zabbix, Proxmox VE, UniFi, Platrum."
+        ]
+      },
+      {
+        "title": "Systems Administrator",
+        "subtitle": "iGroup · iTaxi Technologies",
+        "year": "December 2022 — May 2023",
+        "details": [
+          "Remote/local PC maintenance, upgrades and OS troubleshooting.",
+          "Migrated internal services to new servers and kept SIP telephony (Asterisk/FreePBX/FOP2) stable.",
+          "Refined MikroTik network topology, VPN policies, Multu-WAN balancing and cabling in Nurly Tau offices.",
+          "Supported Redmine, AmoCRM, Bitrix24, Tilda, WordPress, Cloudflare integrations.",
+          "Handled security systems (ACS, CCTV) and hardware logistics.",
+          "Stack: Hyper-V, PostgreSQL, Redmine, Zabbix, 1C, Bitrix, TP-Link, BDCOM."
+        ]
+      },
+      {
+        "title": "Technical Support Engineer",
+        "subtitle": "Housing Standard LLC",
+        "year": "May 2021 — May 2022",
+        "details": [
+          "Worked SLA tickets in Help Desk (Redmine) with time tracking.",
+          "Developed Yii-based software packaged in Docker, delivered via git.",
+          "Scripted Asterisk (Lua) PBX flows, synced with CRM, maintained git commits for dev teams.",
+          "Kept 500+ PBX/CRM nodes online; monitored telephony, CRM, DB and certificate health.",
+          "Performed greenfield deployments via Git + Ansible + Docker with subsequent HTML/PHP edits.",
+          "Managed MySQL scripts, Adminer/Cloudflare/Nginx tuning and WordPress sites.",
+          "Filed QA bug reports, coordinated 1C integration tasks, published corporate updates.",
+          "Stack: Yii, Ansible, Asterisk, Adminer, Redmine, CentOS, git, Prometheus + Grafana, Nginx, Cloudflare."
+        ]
+      },
+      {
+        "title": "Technical Support Engineer",
+        "subtitle": "Delta LLC",
+        "year": "July 2020 — October 2020",
+        "details": [
+          "Programmed security devices and performed remote diagnostics.",
+          "Handled SLA cases in the internal system with time reporting.",
+          "Guided clients on alarm system configuration, remote camera access and field work coordination.",
+          "Scheduled engineers, monitored OPS readiness during night shifts.",
+          "Stack: NDA."
+        ]
+      },
+      {
+        "title": "Microsoft Technical Support Operator",
+        "subtitle": "Teleperformance Russia Group",
+        "year": "November 2017 — February 2020",
+        "details": [
+          "Supported customers on Windows/Office products via phone and chat.",
+          "Assisted with product activation and remote troubleshooting through Windows tools.",
+          "Maintained detailed case logs and leveraged the internal English knowledge base.",
+          "Stack: NDA."
+        ]
+      }
+    ],
+    "gamedev": [
+      {
+        "title": "Retro UI Concepts",
+        "subtitle": "Personal projects",
+        "year": "Ongoing",
+        "details": [
+          "Porting WebOS experiences with XP and 98 look & feel",
+          "Pixel-perfect recreation of Minesweeper, Doom hub and more"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "title": "IT Department Reinvention",
+        "subtitle": "iGroup · 2024",
+        "details": [
+          "Boosted department productivity by 60% via SLA/ticket workflows"
+        ]
+      },
+      {
+        "title": "Uptime Excellence",
+        "subtitle": "iGroup · 2024",
+        "details": [
+          "Raised Tele2/Altel uptime to 99.9% after container/VM remediation"
+        ]
+      },
+      {
+        "title": "Security Automation Program",
+        "subtitle": "SKIFTRADE · 2025",
+        "details": [
+          "Delivered automated monitoring & alerting stack for DevOps squads"
+        ]
+      }
+    ]
+  },
+  "ru": {
+    "education": [
+      {
+        "title": "SQL Interactive Simulator — Data Marathon",
+        "subtitle": "Дистанционно",
+        "year": "2025",
+        "details": [
+          "Основы SQL и Python для обработки данных",
+          "169+ учебных заданий",
+          "Практические кейсы на реальных датасетах"
+        ]
+      },
+      {
+        "title": "Компьютерная криминалистика",
+        "subtitle": "ВолГУ · Институт приоритетных технологий",
+        "year": "2024",
+        "details": [
+          "Digital Forensics, информационная безопасность, анализ ПО",
+          "Дисциплины: экспертиза систем, анализ данных, методики расследований"
+        ]
+      },
+      {
+        "title": "Программирование на C#",
+        "subtitle": "Тюменский учебный центр «Дельфа»",
+        "year": "2021",
+        "details": [
+          "Переподготовка по ООП и экосистеме .NET",
+          "Сданы квалификационные тесты и экзамен"
+        ]
+      },
+      {
+        "title": "Экономика и бухгалтерский учет (отраслевой)",
+        "subtitle": "Международная академия бизнеса и управления (МУБиУ), Москва",
+        "year": "2020",
+        "details": [
+          "Специализация: бухгалтерский учет, аудит, финансовый анализ",
+          "Моделирование, финансовая отчетность, аналитические инструменты"
+        ]
+      },
+      {
+        "title": "Языки",
+        "subtitle": "",
+        "year": "",
+        "details": [
+          "Русский — родной",
+          "English — B2 (Upper-Intermediate)"
+        ]
+      }
+    ],
+    "it": [
+      {
+        "title": "Системный администратор по серверам",
+        "subtitle": "TOO SKIFTRADE · Small.kz",
+        "year": "Май 2025 — Январь 2026",
+        "details": [
+          "Проектирование и внедрение масштабируемой ИТ-архитектуры и отказоустойчивой инфраструктуры.",
+          "Администрирование кластера виртуализации RHV/oVirt (KVM).",
+          "Внедрение Ansible, SaltStack, Terraform для оркестрации и автоматизации.",
+          "Настройка мониторинга (Zabbix, Prometheus), построение алертинга и дашбордов.",
+          "Автоматизация CI/CD (GitLab, Kubernetes, Docker Swarm, Nomad).",
+          "Настройка балансировщиков (HAProxy, Nginx, Traefik, Envoy).",
+          "Администрирование Linux (CentOS, RHEL, Debian) и Windows Server 2008–2019, интеграция FreeIPA + AD.",
+          "Ведение систем логирования/бэкапов/почты (Graylog, ELK/EFK, Bacula/Bareos, Veeam, Postfix, Dovecot, Zimbra, Mailcow).",
+          "Работа с БД (MySQL, PostgreSQL, MongoDB, Elastic, MS SQL) и Keycloak.",
+          "Скриптинг на Bash, Python, PowerShell; построение High Availability решений."
+        ]
+      },
+      {
+        "title": "Руководитель отдела информационных технологий",
+        "subtitle": "iGroup · iTaxi Technologies (партнёр Яндекс Такси)",
+        "year": "Май 2023 — Май 2025",
+        "details": [
+          "Руководство IT-отделом, разработка ТЗ и развитие процессов.",
+          "Оптимизация инфраструктуры: кастомная Ubuntu-ОС для колл-центра с Windows AD, Samba, Squid.",
+          "Администрирование CentOS/Ubuntu на Proxmox VE, Docker, iSCSI, CEPH, TrueNAS, Synology.",
+          "SIP/IP телефония: Asterisk, FreePBX, FOP2, AmoCRM, Bitrix, GLPI.",
+          "Сетевая безопасность: DDoS защита, Fail2Ban, UniFi + MikroTik, VPN.",
+          "Инфраструктура: СКД, видеонаблюдение, Wi-Fi, проектирование серверной.",
+          "Достижения: рост продуктивности IT на 60%, внедрение SLA/тикетов, 99.9% uptime Tele2/Altel.",
+          "Stack: FreePBX, PostgreSQL, Windows Server 2022, Zabbix, Proxmox VE, UniFi, Platrum."
+        ]
+      },
+      {
+        "title": "Системный администратор",
+        "subtitle": "iGroup · iTaxi Technologies",
+        "year": "Декабрь 2022 — Май 2023",
+        "details": [
+          "Поддержка и ремонт ПК (в офисе и удалённо).",
+          "Миграция внутренних сервисов и поддержка SIP (Asterisk/FreePBX/FOP2).",
+          "Доработка сетей MikroTik, VPN, Multu-WAN, перекладка ЛВС.",
+          "Сопровождение Redmine, AmoCRM, Bitrix24, Tilda, WordPress, Cloudflare.",
+          "Работа с СКД, камерами, сетями и серверным оборудованием.",
+          "Stack: Hyper-V, PostgreSQL, Redmine, Zabbix, 1С, Bitrix, TP-Link, BDCOM."
+        ]
+      },
+      {
+        "title": "Специалист-инженер службы технической поддержки",
+        "subtitle": "ООО «Жилищный Стандарт»",
+        "year": "Май 2021 — Май 2022",
+        "details": [
+          "Обработка SLA кейсов в Help Desk (Redmine) с тайм-трекингом.",
+          "Разработка ПО на Yii + Docker + git.",
+          "Программирование SIP (Asterisk, Lua) и интеграции с CRM.",
+          "Поддержка 500+ АТС и CRM, мониторинг сервисов и сертификатов.",
+          "Развёртывание CRM/сайтов через Git+Ansible+Docker, дальнейшее HTML/PHP редактирование.",
+          "Работа с MySQL, Adminer, Cloudflare, Nginx, WordPress.",
+          "Ведение баг-репортов, интеграция 1С, публикации на ресурсах.",
+          "Stack: Yii, Ansible, Asterisk, Adminer, Redmine, CentOS, git, Prometheus+Grafana, Nginx, Cloudflare."
+        ]
+      },
+      {
+        "title": "Инженер технической поддержки",
+        "subtitle": "Дельта, ООО",
+        "year": "Июль 2020 — Октябрь 2020",
+        "details": [
+          "Программирование охранных устройств и удалённая диагностика.",
+          "Ведение SLA задач и отчётности.",
+          "Консультация клиентов по системам безопасности, удалённая работа с камерами.",
+          "Координация выездов инженеров, мониторинг состояния ОПС.",
+          "Stack: NDA."
+        ]
+      },
+      {
+        "title": "Оператор технической поддержки Microsoft",
+        "subtitle": "Teleperformance Russia Group",
+        "year": "Ноябрь 2017 — Февраль 2020",
+        "details": [
+          "Поддержка пользователей Windows/Office по телефону и в чате.",
+          "Помощь с активацией продуктов и удалённым подключением.",
+          "Ведение кейсов и работа с англоязычной базой знаний.",
+          "Stack: NDA."
+        ]
+      }
+    ],
+    "gamedev": [
+      {
+        "title": "Retro UI Concepts",
+        "subtitle": "Пет‑проекты",
+        "year": "В процессе",
+        "details": [
+          "Перенос WebOS с визуалом XP и 98",
+          "Пиксель‑перфект клоны Minesweeper, Doom-хаба и др."
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "title": "Реорганизация IT-отдела",
+        "subtitle": "iGroup · 2024",
+        "details": [
+          "Рост продуктивности на 60%, внедрение SLA и тикет-системы"
+        ]
+      },
+      {
+        "title": "Uptime Excellence",
+        "subtitle": "iGroup · 2024",
+        "details": [
+          "Tele2/Altel доведены до 99.9% uptime после устранения сбоев"
+        ]
+      },
+      {
+        "title": "Security Automation Program",
+        "subtitle": "SKIFTRADE · 2025",
+        "details": [
+          "Автоматизация мониторинга и алертинга DevOps-команд"
+        ]
+      }
+    ]
+  },
+  "fr": {
+    "education": [
+      {
+        "title": "SQL Interactive Simulator — Data Marathon",
+        "subtitle": "En ligne",
+        "year": "2025",
+        "details": [
+          "Fondamentaux SQL avec Python pour le traitement de données",
+          "169+ exercices d’apprentissage",
+          "Travaux pratiques sur des jeux de données réels"
+        ]
+      },
+      {
+        "title": "Informatique légale",
+        "subtitle": "Université d’État de Volgograd · Institut des Technologies Prioritaires",
+        "year": "2024",
+        "details": [
+          "Digital forensics, cybersécurité, analyse logicielle",
+          "Cours : expertise systèmes, analyse de données, méthodologies d’enquête"
+        ]
+      },
+      {
+        "title": "Programmation en C#",
+        "subtitle": "Centre « Delpha » de Tioumen",
+        "year": "2021",
+        "details": [
+          "Reconversion axée sur l’OOP et l’écosystème .NET",
+          "Examens de qualification réussis"
+        ]
+      },
+      {
+        "title": "Économie & Comptabilité (secteur)",
+        "subtitle": "Académie Internationale du Business & du Management (MUBiU), Moscou",
+        "year": "2020",
+        "details": [
+          "Spécialisation : comptabilité, audit, analyse financière",
+          "Modélisation économique, reporting, outils analytiques"
+        ]
+      },
+      {
+        "title": "Langues",
+        "subtitle": "",
+        "year": "",
+        "details": [
+          "Russe — langue maternelle",
+          "Anglais — B2 (Upper-Intermediate)"
+        ]
+      }
+    ],
+    "it": [
+      {
+        "title": "Systems Administrator (Servers)",
+        "subtitle": "TOO SKIFTRADE · Small.kz",
+        "year": "Mai 2025 — Janvier 2026",
+        "details": [
+          "Conception d’architectures IT évolutives et haute disponibilité.",
+          "Administration RHV/oVirt (KVM), automatisation Ansible/SaltStack/Terraform.",
+          "Monitoring Zabbix/Prometheus, pipelines CI/CD GitLab/Kubernetes/Docker Swarm/Nomad.",
+          "Gestion des load balancers, des serveurs Linux/Windows et des services FreeIPA/AD.",
+          "Exploitation Graylog, ELK/EFK, Bacula/Bareos, Veeam, Postfix, Dovecot, Zimbra, Mailcow.",
+          "Bases de données (MySQL, PostgreSQL, MongoDB, Elastic, MS SQL) et Keycloak.",
+          "Scripts Bash/Python/PowerShell et solutions HA."
+        ]
+      },
+      {
+        "title": "Responsable IT",
+        "subtitle": "iGroup · iTaxi Technologies",
+        "year": "Mai 2023 — Mai 2025",
+        "details": [
+          "Pilotage de l’équipe IT, optimisation d’infrastructure (Ubuntu custom + Windows AD).",
+          "Administration Proxmox VE, Docker, iSCSI, CEPH, TrueNAS, Synology.",
+          "Téléphonie SIP (Asterisk, FreePBX, FOP2) et intégrations CRM.",
+          "Sécurité réseau (DDoS, Fail2Ban, UniFi + MikroTik, VPN).",
+          "Succès: +60% de productivité, 99.9% uptime Tele2/Altel.",
+          "Stack: FreePBX, PostgreSQL, Windows Server 2022, Zabbix, Proxmox VE, UniFi, Platrum."
+        ]
+      },
+      {
+        "title": "Administrateur Systèmes",
+        "subtitle": "iGroup · iTaxi Technologies",
+        "year": "Décembre 2022 — Mai 2023",
+        "details": [
+          "Maintenance PC, migrations serveurs, SIP support.",
+          "MikroTik, VPN, recâblage LAN, intégrations Redmine/Amo/Bitrix.",
+          "Stack: Hyper-V, PostgreSQL, Redmine, Zabbix, 1C, Bitrix, TP-Link, BDCOM."
+        ]
+      },
+      {
+        "title": "Ingénieur Support Technique",
+        "subtitle": "Housing Standard LLC",
+        "year": "Mai 2021 — Mai 2022",
+        "details": [
+          "Tickets SLA (Redmine), développement Yii/Docker/git, scripts Asterisk.",
+          "Déploiements Git+Ansible+Docker, gestion MySQL, WordPress, Cloudflare.",
+          "Stack: Yii, Ansible, Asterisk, Adminer, Redmine, CentOS, git, Prometheus+Grafana, Nginx."
+        ]
+      },
+      {
+        "title": "Ingénieur Support",
+        "subtitle": "Delta LLC",
+        "year": "Juillet 2020 — Octobre 2020",
+        "details": [
+          "Programmation d’équipements de sécurité, diagnostics à distance, coordination interventions.",
+          "Stack: NDA."
+        ]
+      },
+      {
+        "title": "Opérateur Support Microsoft",
+        "subtitle": "Teleperformance Russia Group",
+        "year": "Novembre 2017 — Février 2020",
+        "details": [
+          "Support Windows/Office, activation licences, assistance à distance.",
+          "Stack: NDA."
+        ]
+      }
+    ],
+    "gamedev": [
+      {
+        "title": "Concepts UI rétro",
+        "subtitle": "Projets personnels",
+        "year": "En cours",
+        "details": [
+          "Portage d’expériences WebOS façon XP / 98",
+          "Recréations pixel perfect de jeux système"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "title": "Refonte du département IT",
+        "subtitle": "iGroup · 2024",
+        "details": [
+          "+60% de productivité grâce aux SLA et workflows ticketing"
+        ]
+      },
+      {
+        "title": "Uptime Excellence",
+        "subtitle": "iGroup · 2024",
+        "details": [
+          "99,9% uptime Tele2/Altel après remédiation containers/VM"
+        ]
+      },
+      {
+        "title": "Security Automation Program",
+        "subtitle": "SKIFTRADE · 2025",
+        "details": [
+          "Monitoring/alerting automatisés pour les équipes DevOps"
+        ]
+      }
+    ]
+  }
+}
+
